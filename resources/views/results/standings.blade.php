@@ -16,7 +16,7 @@
                 </div>
                 <div class="row">
 
-                    <div class="col-md-3"><h3>Clubname</h3></div>
+                    <div class="col-md-3"><h4>Clubname</h4></div>
                     <div class="col-md-3"><h3>Score</h3></div>
                     <div class="col-md-3"><h3>Place</h3></div>
                     <div class="col-md-3"><h3>Panels</h3></div>
@@ -29,9 +29,9 @@
                         <div class="col-md-3">{{ $result['place'] }}</div>
                         <div class="col-md-3"><img
                                     src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_mono_contact_sheet.jpg"
-                                    width="150px"><br/><br/><img
+                                    width="100px"><br/><br/><img
                                     src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
-                                    width="150px"></div>
+                                    width="100px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -42,7 +42,7 @@
 
                 <div class="row">
 
-                    <div class="col-md-3"><h3>Clubname</h3></div>
+                    <div class="col-md-3"><h4>Clubname</h4></div>
                     <div class="col-md-3"><h3>Score</h3></div>
                     <div class="col-md-3"><h3>Place</h3></div>
                     <div class="col-md-3"><h3>Panels</h3></div>
@@ -55,7 +55,7 @@
                         <div class="col-md-3">{{ $result['place'] }}</div>
                         <div class="col-md-3"><img
                                     src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
-                                    width="150px"></div>
+                                    width="100px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -68,7 +68,7 @@
 
                 <div class="row">
 
-                    <div class="col-md-3"><h3>Clubname</h3></div>
+                    <div class="col-md-3"><h4>Clubname</h4></div>
                     <div class="col-md-3"><h3>Score</h3></div>
                     <div class="col-md-3"><h3>Place</h3></div>
                     <div class="col-md-3"><h3>Panels</h3></div>
@@ -80,8 +80,8 @@
                         <div class="col-md-3">{{ $result['score'] }}</div>
                         <div class="col-md-3">{{ $result['place'] }}</div>
                         <div class="col-md-3"><img
-                                    src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_mono_contact_sheet.jpg"
-                                    width="150px"></div>
+                                    src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_monor_contact_sheet.jpg"
+                                    width="100px"></div>
                     </div>
                     <hr/>
                 @endforeach

@@ -27,7 +27,7 @@ Route::post('/entry/updateAuthor','ClubEntryController@updateAuthor')->name('upd
 Route::post('/entry/updateTitle','ClubEntryController@updateTitle')->name('updateTitle');
 Route::post('/entry/fileUpload', 'ClubEntryController@fileUpload')->name('fileUpload');
 Route::get('/payment','ClubEntryController@payment')->name('payment');
-Route::get('/scores','ClubEntryController@scores')->name('scores');
+
 
 Route::get('/admin/status','ClubEntryController@status')->name('clubstatus');
 Route::get('/admin/users','UserApprovalController@index')->name('userapproval');
@@ -42,6 +42,16 @@ Route::get('/admin/showColourPanel/{clubid}', 'AdminClubEntryController@showColo
 
 Route::get('/admin/scoring/{type}/{judge}','AdminScoringController@scoring')->name('adminscoring');
 Route::post('/admin/setScore','AdminScoringController@setScore')->name('setScore');
+Route::get('/admin/showAdminResults','AdminResultsController@showAdminResults')->name('showAdminResults');
+
+
+Route::get('/results/showOverallResults','AdminResultsController@showOverallResults')->name('showOverallResults');
+Route::get('/results/showStandings','AdminResultsController@showStandings')->name('showStandings');
+Route::get('/results/showIndividualScores','AdminResultsController@showIndividualScores')->name('showIndividualScores');
+Route::get('/results/showPanelScores/{clubid}','AdminResultsController@showIndividualScores')->name('showPanelScores');
+Route::get('/results/getPDFResults/{clubid}','AdminResultsController@getPDFResults')->name('getPDFResults');
+
+
 
 Route::get('/admin/colourwinners','AdminResultsController@colourwinners')->name('colourwinners');
 Route::get('/admin/monowinners','AdminResultsController@monowinners')->name('monowinners');

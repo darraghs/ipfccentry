@@ -78,6 +78,9 @@
 
                                 <div class="col-xs-3">
                                     {{$data['panel_number']}}
+                                    @if( strcmp( $data['status'], "complete") == 0)
+                                        - <a href="/results/showPanelScores/{{$data['club_id']}}">Scores</a>
+                                        @endif
                                 </div>
                                 <div class="col-xs-3">
                                     {{$data['name']}}

@@ -29,7 +29,7 @@ class AdminScoringController extends Controller
             foreach ($panels as $panel) {
                 $imageId = $panel->image_id;
                 $panelImage = PanelImage::find($imageId);
-                if( !is_null($panelImage)){
+                if (!is_null($panelImage)) {
                     if ($panelImage->panel_order < 11) {
 
                         $panelArray[$panelImage->id] = ['score' => $panelImage['Judge' . $judge . '_Score'], 'order' => $panelImage->panel_order];
@@ -62,6 +62,4 @@ class AdminScoringController extends Controller
         ->header('Content-Type', 'application/json');
     }
 
-
-    //select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and   cp.image_id=p.id  group by cp.club_id order by score desc LIMIT 5;
 }

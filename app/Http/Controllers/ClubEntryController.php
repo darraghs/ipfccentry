@@ -90,10 +90,6 @@ class ClubEntryController extends Controller
         return view('payment.paypal', ['clubname' => $club->clubname]);
     }
 
-    public function clubstatus(Request $request)
-    {
-
-    }
 
     public function colourpanel(Request $request)
     {
@@ -518,10 +514,5 @@ class ClubEntryController extends Controller
         system($command);
     }
 
-    public function scores(Request $request){
-        $overallScoresSQL = "select ce.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_entries ce, club_panels epl, panel_images p, clubs cn where cn.id=ce.club_id and  ce.club_id=epl.club_id and epl.image_id=p.id  group by ce.club_id order by score desc ";
-        $overallScores = DB::select(DB::raw($overallScoresSQL));
-        dd($overallScores);
-    }
 
 }
