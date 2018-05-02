@@ -28,9 +28,9 @@
                         <div class="col-md-3">{{ $result['score'] }}</div>
                         <div class="col-md-3">{{ $result['place'] }}</div>
                         <div class="col-md-3"><img
-                                    src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_mono_contact_sheet.jpg"
+                                    src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_mono_contact_sheet.jpg"
                                     width="100px"><br/><br/><img
-                                    src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
+                                    src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
                                     width="100px"></div>
                     </div>
                     <hr/>
@@ -54,7 +54,7 @@
                         <div class="col-md-3">{{ $result['score'] }}</div>
                         <div class="col-md-3">{{ $result['place'] }}</div>
                         <div class="col-md-3"><img
-                                    src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
+                                    src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
                                     width="100px"></div>
                     </div>
                     <hr/>
@@ -80,7 +80,7 @@
                         <div class="col-md-3">{{ $result['score'] }}</div>
                         <div class="col-md-3">{{ $result['place'] }}</div>
                         <div class="col-md-3"><img
-                                    src="/uploads/{{$result['club_id']}}/{{$result['club_id']}}_monor_contact_sheet.jpg"
+                                    src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_monor_contact_sheet.jpg"
                                     width="100px"></div>
                     </div>
                     <hr/>

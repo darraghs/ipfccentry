@@ -81,7 +81,7 @@
                                     {{$result['award']}}
                                 </div>
                                 <div class="col-xs-3">
-                                    <img src="/uploads/200_{{$result['image']}}" width="100px">
+                                    <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" width="100px">
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                                     {{$result['award']}}
                                 </div>
                                 <div class="col-xs-3">
-                                    <img src="/uploads/200_{{$result['image']}}" width="100px">
+                                    <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" width="100px">
                                 </div>
                             </div>
                         </div>
