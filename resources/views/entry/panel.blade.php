@@ -34,7 +34,7 @@
                                @if ($image_1 == "")
                                    <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_1">
                                @else
-                                   <img class="img-thumbnail" src="{{$image_1}}" width="200" id="image_src_1">
+                                   <img class="img-thumbnail" src="{{ url('/').$image_1}}" width="200" id="image_src_1">
                                @endif
                                @if( $canUpdate )
                                    {!! Form::label('author_1', 'Author Name') !!}
@@ -78,7 +78,7 @@
                             @if ($image_3 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_3">
                             @else
-                                <img class="img-thumbnail" src="{{$image_3}}" id="image_src_3">
+                                <img class="img-thumbnail" src="{{ url('/').$image_3}}" id="image_src_3">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_3', 'Author Name') !!}
@@ -100,7 +100,7 @@
                             @if ($image_4 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_4">
                             @else
-                                <img class="img-thumbnail" src="{{$image_4}}" id="image_src_4">
+                                <img class="img-thumbnail" src="{{ url('/').$image_4}}" id="image_src_4">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_4', 'Author Name') !!}
@@ -122,7 +122,7 @@
                             @if ($image_5 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_5">
                             @else
-                                <img class="img-thumbnail" src="{{$image_5}}" id="image_src_5">
+                                <img class="img-thumbnail" src="{{ url('/').$image_5}}" id="image_src_5">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_5', 'Author Name') !!}
@@ -147,7 +147,7 @@
                            @if ($image_6 == "")
                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_6">
                            @else
-                               <img class="img-thumbnail" src="{{$image_6}}" id="image_src_6">
+                               <img class="img-thumbnail" src="{{ url('/').$image_6}}" id="image_src_6">
                            @endif
                            @if( $canUpdate )
                                {!! Form::label('author_6', 'Author Name') !!}
@@ -169,7 +169,7 @@
                             @if ($image_7 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_7">
                             @else
-                                <img class="img-thumbnail" src="{{$image_7}}" id="image_src_7">
+                                <img class="img-thumbnail" src="{{ url('/').$image_7}}" id="image_src_7">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_7', 'Author Name') !!}
@@ -191,7 +191,7 @@
                             @if ($image_8 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_8">
                             @else
-                                <img class="img-thumbnail" src="{{$image_8}}" id="image_src_8">
+                                <img class="img-thumbnail" src="{{ url('/').$image_8}}" id="image_src_8">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_8', 'Author Name') !!}
@@ -213,7 +213,7 @@
                             @if ($image_9 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_9">
                             @else
-                                <img class="img-thumbnail" src="{{$image_9}}" id="image_src_9">
+                                <img class="img-thumbnail" src="{{ url('/').$image_9}}" id="image_src_9">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_9', 'Author Name') !!}
@@ -235,7 +235,7 @@
                             @if ($image_10 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_10">
                             @else
-                                <img class="img-thumbnail" src="{{$image_10}}" id="image_src_10">
+                                <img class="img-thumbnail" src="{{ url('/').$image_10}}" id="image_src_10">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_10', 'Author Name') !!}
@@ -262,7 +262,7 @@
                            @if ($image_11 == "")
                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_11">
                            @else
-                               <img class="img-thumbnail" src="{{$image_11}}" id="image_src_11">
+                               <img class="img-thumbnail" src="{{ url('/').$image_11}}" id="image_src_11">
                            @endif
                            @if( $canUpdate )
                                {!! Form::label('author_11', 'Author Name') !!}
@@ -284,7 +284,7 @@
                             @if ($image_12 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_12">
                             @else
-                                <img class="img-thumbnail" src="{{$image_12}}" id="image_src_12">
+                                <img class="img-thumbnail" src="{{ url('/').$image_12}}" id="image_src_12">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_12', 'Author Name') !!}
