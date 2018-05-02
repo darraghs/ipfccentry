@@ -56,7 +56,7 @@
                             @if ($image_2 == "")
                                 <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_2">
                             @else
-                                <img class="img-thumbnail" src="{{$image_2}}" id="image_src_2">
+                                <img class="img-thumbnail" src="{{ url('/').$image_2}}" id="image_src_2">
                             @endif
                             @if( $canUpdate )
                                 {!! Form::label('author_2', 'Author Name') !!}
