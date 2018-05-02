@@ -120,6 +120,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('compstatus') }}">Competition Status</a></li>
                                     <li><a href="{{ route('userapproval') }}">Users</a></li>
                                     <li><a href="{{ route('clubstatus') }}">Club Status</a></li>
                                     <li><a href="{{ route('colourwinners') }}">Colour Awards</a></li>

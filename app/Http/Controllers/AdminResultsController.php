@@ -8,7 +8,7 @@ use App\Club;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use \PDF;
+use PDF;
 
 
 class AdminResultsController extends Controller
@@ -29,7 +29,7 @@ class AdminResultsController extends Controller
 
     public function getWinners($type){
 
-        $query = 'SELECT ce.panel_number, p.id AS pid, p.panel_order, p.image, p.award, p.title, (p.Judge1_score + p.Judge2_Score + p.Judge3_Score) AS TOTAL FROM panel_images p, club_panels epl, club_entries ce WHERE ce.club_id = epl.club_id AND epl.image_id = p.id AND epl.image_type = "'.$type.'" AND ce.panel_number IS NOT NULL ORDER BY p.award DESC, TOTAL DESC LIMIT 10';
+        $query = 'SELECT ce.panel_number, p.id AS pid, p.panel_order, p.image, p.award, p.title, (p.Judge1_score + p.Judge2_Score + p.Judge3_Score) AS TOTAL FROM panel_images p, club_panels epl, club_entries ce WHERE ce.club_id = epl.club_id AND epl.image_id = p.id AND epl.image_type = "'.$type.'" AND ce.panel_number IS NOT NULL ORDER BY p.award DESC, TOTAL DESC LIMIT 11';
 
         $winners = DB::select(DB::raw($query));
         return view('admin.winners', ['winners'=>$winners]);
@@ -133,7 +133,7 @@ class AdminResultsController extends Controller
 
         $pageArray = [];
 
-        $overallSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and   cp.image_id=p.id  group by cp.club_id order by score desc';
+        $overallSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and   cp.image_id=p.id  group by cp.club_id, cn.clubname order by score desc';
         $overallQuery = DB::select(DB::raw($overallSQL));
 
 
@@ -173,7 +173,7 @@ class AdminResultsController extends Controller
         $pageArray['third_overall'] = $thirdPlaceOverall;
 
 
-        $colourSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="colour" and cp.image_id=p.id  group by cp.club_id order by score desc';
+        $colourSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="colour" and cp.image_id=p.id  group by cp.club_id, cn.clubname order by score desc';
         $colourResults = DB::select(DB::raw($colourSQL));
 
 
@@ -213,7 +213,7 @@ class AdminResultsController extends Controller
         $pageArray['third_colour'] = $thirdPlaceColour;
 
 
-        $monoSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="Mono" and cp.image_id=p.id  group by cp.club_id order by score desc';
+        $monoSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="Mono" and cp.image_id=p.id  group by cp.club_id, cn.clubname order by score desc';
         $monoResults = DB::select(DB::raw($monoSQL));
 
 
@@ -320,15 +320,15 @@ class AdminResultsController extends Controller
     public function getStandings(){
         $pageArray = [];
 
-        $overallSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and   cp.image_id=p.id  group by cp.club_id order by score desc';
+        $overallSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and   cp.image_id=p.id  group by cp.club_id, cn.clubname order by score desc';
         $overallQuery = DB::select(DB::raw($overallSQL));
         $overallPlaces = $this->calculatePlacing($overallQuery);
 
-        $colourSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="colour" and cp.image_id=p.id  group by cp.club_id order by score desc';
+        $colourSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="colour" and cp.image_id=p.id  group by cp.club_id, cn.clubname order by score desc';
         $colourResults = DB::select(DB::raw($colourSQL));
         $colourPlaces = $this->calculatePlacing($colourResults);
 
-        $monoSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="Mono" and cp.image_id=p.id  group by cp.club_id order by score desc';
+        $monoSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and  cp.image_type="Mono" and cp.image_id=p.id  group by cp.club_id, cn.clubname order by score desc';
         $monoResults = DB::select(DB::raw($monoSQL));
         $monoPlaces = $this->calculatePlacing($monoResults);
 
@@ -434,7 +434,7 @@ class AdminResultsController extends Controller
         if( !is_null($club)){
             $pageArray = $this->getPanelScores($clubid);
             $pageArray['clubname'] = $club->clubname;
-            $pdf = \PDF::loadView('results.scores', $pageArray);
+            $pdf = PDF::loadView('results.scores', $pageArray);
             return $pdf->download('results.pdf');
 
         }

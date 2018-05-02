@@ -7,17 +7,12 @@ use App\ClubEntry;
 use App\ClubPanel;
 use App\CompetitionStatus;
 use App\PanelImage;
-
-use Illuminate\Support\Facades\Auth;
+use File;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Log;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
-use File;
-
-use Illuminate\Support\Facades\Config;
 
 
 class ClubEntryController extends Controller
@@ -126,12 +121,11 @@ class ClubEntryController extends Controller
                 if (strcmp($image->image, "") == 0) {
                     $pageArray['image_' . $counter] = $image->image;
                 } else {
-                    $filename =  'uploads/200_' . $image->image;
+                    $filename = 'uploads/200_' . $image->image;
                     if (!File::exists($filename)) {
                         $filename = '/uploads/' . $image->image;
-                    }
-                    else{
-                        $filename = '/'.$filename;
+                    } else {
+                        $filename = '/' . $filename;
                     }
                     $pageArray['image_' . $counter] = $filename;
                 }
@@ -174,7 +168,7 @@ class ClubEntryController extends Controller
         $panelimage->image = $image_name;
         $panelimage->save();
 
-        return \response(['msg' => 'Image Uploaded'], 200) // 200 Status Code: Standard response for successful HTTP request
+        return \response(['msg' => 'Image Uploaded'], 200)// 200 Status Code: Standard response for successful HTTP request
         ->header('Content-Type', 'application/json');
 
 
@@ -184,7 +178,7 @@ class ClubEntryController extends Controller
     {
         $type = $request->input('type');
         $clubid = Auth::user()->club_id;
-        if( is_null($clubid) || empty($clubid)){
+        if (is_null($clubid) || empty($clubid)) {
             $clubid = $request->input('club_id');
         }
 
@@ -225,35 +219,32 @@ class ClubEntryController extends Controller
         }
         $this->runPanelChecks($clubid);
 
-        if( $type =='mono' ) {
-            if( $this->hasColourPanel($clubid)){
-                if( $this->checkIfPanelIsComplete("colour", $clubid) ) {
-                    return redirect()->route('entrystatus' );
-                }
-                else {
+        if ($type == 'mono') {
+            if ($this->hasColourPanel($clubid)) {
+                if ($this->checkIfPanelIsComplete("colour", $clubid)) {
+                    return redirect()->route('entrystatus');
+                } else {
                     return $this->displayPanel("colour", $clubid);
                 }
-            }
-            else{
-                return redirect()->route('entrystatus' );
+            } else {
+                return redirect()->route('entrystatus');
             }
         } else {
-            if( $this->hasMonoPanel($clubid)){
-                if( $this->checkIfPanelIsComplete("mono", $clubid) ) {
-                    return redirect()->route('entrystatus' );
-                }
-                else {
+            if ($this->hasMonoPanel($clubid)) {
+                if ($this->checkIfPanelIsComplete("mono", $clubid)) {
+                    return redirect()->route('entrystatus');
+                } else {
                     return $this->displayPanel("mono", $clubid);
                 }
-            }
-            else{
-                return redirect()->route('entrystatus' );
+            } else {
+                return redirect()->route('entrystatus');
             }
         }
         return $this->displayPanel($type, $clubid);
     }
 
-    public function runPanelChecks($clubid){
+    public function runPanelChecks($clubid)
+    {
         $entry = ClubEntry::find($clubid);
         if (strcmp($entry->status, 'incomplete') == 0) {
 
@@ -269,38 +260,38 @@ class ClubEntryController extends Controller
                     $panel_number = intval($max) + $panel_number;
                 }
 
-
-
                 $entry->panel_number = $panel_number;
                 $entry->status = "complete";
                 $entry->save();
             }
         }
 
-        if( $this->hasMonoPanel($clubid)){
+        if ($this->hasMonoPanel($clubid)) {
             $this->createContactSheets('mono', $clubid);
 
         }
-        if( $this->hasColourPanel($clubid)){
+        if ($this->hasColourPanel($clubid)) {
             $this->createContactSheets('colour', $clubid);
         }
     }
 
-    public function hasMonoPanel($clubid){
+    public function hasMonoPanel($clubid)
+    {
         $panels = ClubPanel::where('club_id', $clubid)->where('image_type', 'mono')->get();
-        return (sizeof($panels) > 0) ;
+        return (sizeof($panels) > 0);
     }
 
-    public function hasColourPanel($clubid){
+    public function hasColourPanel($clubid)
+    {
         $panels = ClubPanel::where('club_id', $clubid)->where('image_type', 'colour')->get();
-        return (sizeof($panels) > 0) ;
+        return (sizeof($panels) > 0);
     }
 
     public function checkIfPanelIsComplete($type, $clubid)
     {
         $panels = ClubPanel::where('club_id', $clubid)->where('image_type', $type)->orderBy('image_id')->get();
         $complete = TRUE;
-        if( sizeof($panels) > 0 ) {
+        if (sizeof($panels) > 0) {
 
             $counter = 0;
             foreach ($panels as $panel) {
@@ -441,7 +432,9 @@ class ClubEntryController extends Controller
 
         return $paid;
     }
-    public function updateAuthor(Request $request){
+
+    public function updateAuthor(Request $request)
+    {
         $imageId = $request->input('id');
         $author = $request->input('author');
         $image = PanelImage::find($imageId);
@@ -449,15 +442,16 @@ class ClubEntryController extends Controller
         $image->save();
 
         $panel = ClubPanel::where('image_id', $image->id)->get();
-        if( !is_null($panel) && sizeof($panel) == 1 ){
+        if (!is_null($panel) && sizeof($panel) == 1) {
             $this->runPanelChecks($panel[0]->club_id);
         }
 
-        return \response(['msg' => 'Author Updated'], 200) // 200 Status Code: Standard response for successful HTTP request
-          ->header('Content-Type', 'application/json');
+        return \response(['msg' => 'Author Updated'], 200)// 200 Status Code: Standard response for successful HTTP request
+        ->header('Content-Type', 'application/json');
     }
 
-    public function updateTitle(Request $request){
+    public function updateTitle(Request $request)
+    {
         $imageId = $request->input('id');
         $title = $request->input('title');
         $image = PanelImage::find($imageId);
@@ -465,11 +459,11 @@ class ClubEntryController extends Controller
         $image->save();
 
         $panel = ClubPanel::where('image_id', $image->id)->get();
-        if( !is_null($panel) && sizeof($panel) == 1 ){
+        if (!is_null($panel) && sizeof($panel) == 1) {
             $this->runPanelChecks($panel[0]->club_id);
         }
 
-        return \response(['msg' => 'Title Updated'], 200) // 200 Status Code: Standard response for successful HTTP request
+        return \response(['msg' => 'Title Updated'], 200)// 200 Status Code: Standard response for successful HTTP request
         ->header('Content-Type', 'application/json');
     }
 
@@ -482,7 +476,7 @@ class ClubEntryController extends Controller
 
     private function canUpdateEntry()
     {
-        if( Auth::user()->isAdmin()){
+        if (Auth::user()->isAdmin()) {
             return true;
         } elseif (strcmp($this->getCurrentStatus(), 'entry') == 0) {
             return true;
@@ -499,7 +493,7 @@ class ClubEntryController extends Controller
         $filelocations = "";
         foreach ($images as $image) {
             $filename = $image->image;
-            if( !is_null($filename)) {
+            if (!is_null($filename)) {
                 $filelocations = $filelocations . " uploads/" . $image->image;
             }
         }
@@ -508,7 +502,7 @@ class ClubEntryController extends Controller
             File::makeDirectory($outputDir);
         }
 
-        $outputFile = $outputDir. "/" . $club_id . "_" . $paneltype . "_contact_sheet.jpg";
+        $outputFile = $outputDir . "/" . $club_id . "_" . $paneltype . "_contact_sheet.jpg";
         $command = "/usr/bin/montage " . $filelocations . " -background '#808080' -geometry 460x460+4+3 -tile 5x2 " . $outputFile . " > /dev/null 2>/dev/null & ";
 
         system($command);

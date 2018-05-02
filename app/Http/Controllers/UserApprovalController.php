@@ -57,6 +57,18 @@ class UserApprovalController extends Controller
 
     }
 
+    public function deleteUser(Request $request)
+    {
+        $userId = $request->input('userId');
+        $user = User::find($userId);
+        if( $user ){
+            $user->forceDelete();
+        }
+        return $this->index();
+
+
+    }
+
     public function setAdmin(Request $request)
     {
         $userId = $request->input('userId');

@@ -427,3 +427,27 @@ function validateForm() {
     }
     return valid;
 }
+
+
+$('.payment').change(function () {
+    var $this = $(this);
+    var cludId = $this.attr('name');
+    var method = $this.val();
+
+    $.ajax({
+        data: {
+
+
+            _token: window.Laravel.csrfToken
+        },
+        url: '/admin/setPaid/'+cludId+"/"+method,
+        type: 'POST',
+        dataType: 'json',
+        success: function (data) {
+            $('#status').show();
+            $('#status').text(data.msg).fadeOut( 2000 );
+        },
+
+
+    });
+});

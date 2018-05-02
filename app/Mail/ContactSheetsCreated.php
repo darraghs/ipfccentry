@@ -2,6 +2,9 @@
 
 namespace App\Mail;
 
+use App\Club;
+use App\ClubEntry;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -16,9 +19,10 @@ class ContactSheetsCreated extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $clubEntry;
+    public function __construct(ClubEntry $clubEntry)
     {
-        //
+        $this->clubEntry = $clubEntry;
     }
 
     /**
@@ -28,6 +32,10 @@ class ContactSheetsCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        $clubid = $this->clubEntry-id;
+
+        $club = Club::id($clubid);
+        $clubname = $club->name;
+        return $this->subject("New Contact Sheets for ".$clubname)->view('email.contactsheets');
     }
 }

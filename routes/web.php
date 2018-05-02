@@ -33,6 +33,7 @@ Route::get('/admin/status','ClubEntryController@status')->name('clubstatus');
 Route::get('/admin/users','UserApprovalController@index')->name('userapproval');
 Route::post('/admin/approveUser','UserApprovalController@approveUser')->name('approveUser');
 Route::post('/admin/setAdmin','UserApprovalController@setAdmin')->name('setAdmin');
+Route::get('/admin/deleteUser','UserApprovalController@deleteUser')->name('deleteUser');
 
 
 Route::post('/admin/setPaid/{clubid}/{method}', 'AdminClubEntryController@setPaid')->name('setPaid');
@@ -58,6 +59,10 @@ Route::get('/admin/monowinners','AdminResultsController@monowinners')->name('mon
 
 Route::post('/admin/setawards','AdminResultsController@setawards')->name('setawards');
 Route::get('/admin/clubstatus','AdminClubEntryController@status')->name('clubstatus');
+
+Route::get('/admin/compstatus','CompStatusController@index')->name('compstatus');
+Route::post('/admin/updateCompState','CompStatusController@updateCompState')->name('updateCompState');
+
 
 
 Auth::routes();

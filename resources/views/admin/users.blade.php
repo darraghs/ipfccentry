@@ -16,6 +16,7 @@
                     <td class="col-sm-4 col-md-2 col-md-pull-4">Club</td>
                     <td class="col-sm-4 col-md-2 col-md-pull-4">Approved</td>
                     <td class="col-sm-4 col-md-2">Admin</td>
+                    <td class="col-sm-4 col-md-2">Delete</td>
                 </tr>
                 @foreach ($users as $user)
                     <tr>
@@ -25,6 +26,7 @@
                         <td class="col-sm-4 col-md-2 col-md-pull-4">{{ $user->clubname }}</td>
                         <td class="col-sm-4 col-md-2 col-md-pull-4">{{ Form::checkbox($user->id, $user->id, $user->approved, ['class' => 'approve']) }}</td>
                         <td class="col-sm-4 col-md-2">{{ Form::checkbox($user->id, $user->id, $user->admin, ['class' => 'admin']) }}</td>
+                        <td class="col-sm-4 col-md-2"><a href="{{ URL::route('deleteUser', array('userId'=>$user->id)) }}" class="btn btn-default">  Delete </a></td>
                     </tr>
                 @endforeach
                 </table>

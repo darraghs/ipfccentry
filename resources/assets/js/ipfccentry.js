@@ -5,7 +5,6 @@
 window.$ = window.jQuery = require('jquery');
 
 $('.approve').on('click', function (){
-    alert("HEY");
     var $this = $(this);
 
 
