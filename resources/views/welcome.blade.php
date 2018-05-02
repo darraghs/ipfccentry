@@ -81,6 +81,10 @@
                 <div class="title m-b-md">
                     IPF Club Championship
                 </div>
+                <div class="m-b-md">
+                   Online Entry System
+                </div>
+                <br/>
 
                 <div class="links">
                     <a href="http://www.irishphoto.ie/">Irish Photographic Federation</a>
