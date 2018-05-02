@@ -79,7 +79,7 @@
                                 <div class="col-xs-3">
                                     {{$data['panel_number']}}
                                     @if( strcmp( $data['status'], "complete") == 0)
-                                        - <a href="/results/showPanelScores/{{$data['club_id']}}">Scores</a>
+                                        - <a href="{{ url('/') }}/results/showPanelScores/{{$data['club_id']}}">Scores</a>
                                         @endif
                                 </div>
                                 <div class="col-xs-3">
@@ -96,9 +96,9 @@
 
                                 <div class="col-xs-3">
                                     @if( strcmp($data['hasMono'], 'yes') == 0)
-                                        <a href="/admin/checkClubPanel/{{$data['club_id']}}">Images</a>
+                                        <a href="{{ url('/') }}/admin/checkClubPanel/{{$data['club_id']}}">Images</a>
                                         @if( strcmp( $data['status'], "complete") == 0)
-                                            <a href="/uploads/{{$data['club_id']}}/{{$data['club_id']}}_mono_contact_sheet.jpg">Sheet</a>
+                                            <a href="{{ url('/') }}/uploads/{{$data['club_id']}}/{{$data['club_id']}}_mono_contact_sheet.jpg">Sheet</a>
                                         @endif
                                     @endif
 
@@ -106,9 +106,9 @@
                                 </div>
                                 <div class="col-xs-3">
                                     @if( strcmp($data['hasColour'], 'yes') == 0)
-                                        <a href="/admin/showColourPanel/{{$data['club_id']}}">Images</a>
+                                        <a href="{{ url('/') }}/admin/showColourPanel/{{$data['club_id']}}">Images</a>
                                         @if( strcmp( $data['status'], "complete") == 0)
-                                            <a href="/uploads/{{$data['club_id']}}/{{$data['club_id']}}_colour_contact_sheet.jpg">Sheet</a>
+                                            <a href="{{ url('/') }}/uploads/{{$data['club_id']}}/{{$data['club_id']}}_colour_contact_sheet.jpg">Sheet</a>
                                         @endif
                                     @endif
                                 </div>

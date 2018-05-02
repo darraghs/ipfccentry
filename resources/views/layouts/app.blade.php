@@ -93,9 +93,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/admin/scoring/mono/1">Judge 1</a></li>
-                                        <li><a href="/admin/scoring/mono/2">Judge 2</a></li>
-                                        <li><a href="/admin/scoring/mono/3">Judge 3</a></li>
+                                        <li><a href="{{ url('/') }}/admin/scoring/mono/1">Judge 1</a></li>
+                                        <li><a href="{{ url('/') }}/admin/scoring/mono/2">Judge 2</a></li>
+                                        <li><a href="{{ url('/') }}/admin/scoring/mono/3">Judge 3</a></li>
                                     </ul>
                                 </li>
                             @endif
@@ -107,9 +107,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="/admin/scoring/colour/1">Judge 1</a></li>
-                                        <li><a href="/admin/scoring/colour/2">Judge 2</a></li>
-                                        <li><a href="/admin/scoring/colour/3">Judge 3</a></li>
+                                        <li><a href="{{ url('/') }}/admin/scoring/colour/1">Judge 1</a></li>
+                                        <li><a href="{{ url('/') }}/admin/scoring/colour/2">Judge 2</a></li>
+                                        <li><a href="{{ url('/') }}/admin/scoring/colour/3">Judge 3</a></li>
                                     </ul>
                                 </li>
                             @endif
