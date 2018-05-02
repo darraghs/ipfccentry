@@ -32,7 +32,7 @@
                                    {!! Form::file('image_1',['id'=>'image_1', 'class' => $image_id_1]) !!}
                                @endif
                                @if ($image_1 == "")
-                                   <img class="img-thumbnail" src="/placeholder.png" id="image_src_1">
+                                   <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_1">
                                @else
                                    <img class="img-thumbnail" src="{{$image_1}}" width="200" id="image_src_1">
                                @endif
@@ -54,7 +54,7 @@
                                 {!! Form::file('image_2', ['id'=>'image_2', 'class' => $image_id_2]) !!}
                             @endif
                             @if ($image_2 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_2">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_2">
                             @else
                                 <img class="img-thumbnail" src="{{$image_2}}" id="image_src_2">
                             @endif
@@ -76,7 +76,7 @@
                                 {!! Form::file('image_3', ['id'=>'image_3', 'class' => $image_id_3]) !!}
                             @endif
                             @if ($image_3 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_3">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_3">
                             @else
                                 <img class="img-thumbnail" src="{{$image_3}}" id="image_src_3">
                             @endif
@@ -98,7 +98,7 @@
                                 {!! Form::file('image_4', ['id'=>'image_4', 'class' => $image_id_4]) !!}
                             @endif
                             @if ($image_4 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_4">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_4">
                             @else
                                 <img class="img-thumbnail" src="{{$image_4}}" id="image_src_4">
                             @endif
@@ -120,7 +120,7 @@
                                 {!! Form::file('image_5', ['id'=>'image_5', 'class' => $image_id_5]) !!}
                             @endif
                             @if ($image_5 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_5">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_5">
                             @else
                                 <img class="img-thumbnail" src="{{$image_5}}" id="image_src_5">
                             @endif
@@ -145,7 +145,7 @@
                                {!! Form::file('image_6', ['id'=>'image_6', 'class' => $image_id_6]) !!}
                            @endif
                            @if ($image_6 == "")
-                               <img class="img-thumbnail" src="/placeholder.png" id="image_src_6">
+                               <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_6">
                            @else
                                <img class="img-thumbnail" src="{{$image_6}}" id="image_src_6">
                            @endif
@@ -167,7 +167,7 @@
                                 {!! Form::file('image_7', ['id'=>'image_7', 'class' => $image_id_7]) !!}
                             @endif
                             @if ($image_7 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_7">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_7">
                             @else
                                 <img class="img-thumbnail" src="{{$image_7}}" id="image_src_7">
                             @endif
@@ -189,7 +189,7 @@
                                 {!! Form::file('image_8', ['id'=>'image_8', 'class' => $image_id_8]) !!}
                             @endif
                             @if ($image_8 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_8">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_8">
                             @else
                                 <img class="img-thumbnail" src="{{$image_8}}" id="image_src_8">
                             @endif
@@ -211,7 +211,7 @@
                                 {!! Form::file('image_9', ['id'=>'image_9', 'class' => $image_id_9]) !!}
                             @endif
                             @if ($image_9 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_9">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_9">
                             @else
                                 <img class="img-thumbnail" src="{{$image_9}}" id="image_src_9">
                             @endif
@@ -233,7 +233,7 @@
                                 {!! Form::file('image_10', ['id'=>'image_10', 'class' => $image_id_10]) !!}
                             @endif
                             @if ($image_10 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_10">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_10">
                             @else
                                 <img class="img-thumbnail" src="{{$image_10}}" id="image_src_10">
                             @endif
@@ -260,7 +260,7 @@
                                {!! Form::file('image_11', ['id'=>'image_11', 'class' => $image_id_11]) !!}
                            @endif
                            @if ($image_11 == "")
-                               <img class="img-thumbnail" src="/placeholder.png" id="image_src_11">
+                               <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_11">
                            @else
                                <img class="img-thumbnail" src="{{$image_11}}" id="image_src_11">
                            @endif
@@ -282,7 +282,7 @@
                                 {!! Form::file('image_12', ['id'=>'image_12', 'class' => $image_id_12]) !!}
                             @endif
                             @if ($image_12 == "")
-                                <img class="img-thumbnail" src="/placeholder.png" id="image_src_12">
+                                <img class="img-thumbnail" src="{{ url('/') }}/placeholder.png" id="image_src_12">
                             @else
                                 <img class="img-thumbnail" src="{{$image_12}}" id="image_src_12">
                             @endif
