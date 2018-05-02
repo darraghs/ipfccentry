@@ -23,8 +23,8 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -37,8 +37,8 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -52,8 +52,8 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -71,7 +71,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -84,7 +84,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -98,7 +98,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -118,7 +118,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -131,7 +131,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -145,7 +145,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->score }}</div>
-                        <div class="col-md-3"><img src="/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -168,7 +168,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -181,7 +181,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -195,7 +195,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -208,7 +208,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -229,7 +229,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -242,7 +242,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -256,7 +256,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach
@@ -269,7 +269,7 @@
 
                         <div class="col-md-3"><h4>{{ $result->clubname }}</h4> </div>
                         <div class="col-md-3">{{ $result->author_name }} - {{ $result->title }}</div>
-                        <div class="col-md-3"><img src="/uploads/200_{{$result->image}}" width="200px"></div>
+                        <div class="col-md-3"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="200px"></div>
                     </div>
                     <hr/>
                 @endforeach

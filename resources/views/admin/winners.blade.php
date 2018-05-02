@@ -24,7 +24,7 @@
                         <div class="col-sm-4 col-md-2">{{ $winner->panel_number }} - {{ $winner->panel_order }}</div>
                         <div class="col-sm-4 col-md-2">{{ $winner->title }}</div>
                         <div class="col-sm-4 col-md-2">{{$winner->TOTAL}}</div>
-                        <div class="col-sm-4 col-md-2"><img src="/uploads/200_{{$winner->image}}" width="150px"></div>
+                        <div class="col-sm-4 col-md-2"><img src="{{ url('/') }}/uploads/200_{{$winner->image}}" width="150px"></div>
 
 
                         <div class="col-sm-4 col-md-2">

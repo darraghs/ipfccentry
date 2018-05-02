@@ -76,7 +76,7 @@
                         <div class="col-sm-4">Colour Panel Contact Sheet</div>
                         <div class="col-sm-8">
                             @if( strcmp( $complete, "Completed") == 0)
-                                <img src="/uploads/{{ $id }}/{{ $id }}_colour_contact_sheet.jpg" width="700px">
+                                <img src="{{ url('/') }}/uploads/{{ $id }}/{{ $id }}_colour_contact_sheet.jpg" width="700px">
                             @else
                                 Contact sheets will be available here when all images are uploaded
                             @endif
@@ -89,7 +89,7 @@
                         <div class="col-sm-4">Mono Panel Contact Sheet</div>
                         <div class="col-sm-8">
                             @if( strcmp( $complete, "Completed") == 0)
-                                <img src="/uploads/{{ $id }}/{{ $id }}_mono_contact_sheet.jpg" width="700px">
+                                <img src="{{ url('/') }}/uploads/{{ $id }}/{{ $id }}_mono_contact_sheet.jpg" width="700px">
                             @else
                                 Contact sheets will be available here when all images are uploaded
                             @endif
