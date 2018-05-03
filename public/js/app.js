@@ -988,7 +988,7 @@ $('.authorfield').change(function (event) {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/entry/updateAuthor',
+        url: '/ipfccentry2018/entry/updateAuthor',
         type: 'POST',
         dataType: 'json',
         success: function success(data) {
@@ -1012,7 +1012,7 @@ $('.titlefield').change(function (event) {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/entry/updateTitle',
+        url: '/ipfccentry2018/entry/updateTitle',
         type: 'POST',
         dataType: 'json',
         success: function success(data) {
@@ -1040,7 +1040,7 @@ $('.scoring').change(function (event) {
 
                 _token: window.Laravel.csrfToken
             },
-            url: '/admin/setScore',
+            url: '/ipfccentry2018/admin/setScore',
             type: 'POST',
             dataType: 'json',
             success: function success(data) {
@@ -1068,7 +1068,7 @@ $('.selectwinner').change(function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/setawards',
+        url: '/ipfccentry2018/admin/setawards',
         type: 'POST',
         dataType: 'json',
         success: function success(data) {
@@ -1088,7 +1088,7 @@ $('.approve').on('click', function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/approveUser',
+        url: '/ipfccentry2018/admin/approveUser',
         type: 'POST',
         dataType: 'json',
         success: function success(data) {
@@ -1107,7 +1107,7 @@ $('.admin').on('click', function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/setAdmin',
+        url: '/ipfccentry2018/admin/setAdmin',
         type: 'POST',
         dataType: 'json',
         success: function success(data) {
@@ -1126,7 +1126,7 @@ $('.payment').change(function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/setPaid/' + cludId + "/" + method,
+        url: '/ipfccentry2018/admin/setPaid/' + cludId + "/" + method,
         type: 'POST',
         dataType: 'json',
         success: function success(data) {
@@ -1261,7 +1261,7 @@ function validateImage(imageInput) {
 
                     $.ajax((_$$ajax = {
                         // Your server script to process the upload
-                        url: '/entry/fileUpload',
+                        url: '/ipfccentry2018/entry/fileUpload',
                         type: 'POST',
 
                         // Form data
