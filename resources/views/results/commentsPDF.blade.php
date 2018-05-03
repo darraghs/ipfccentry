@@ -6,7 +6,7 @@
         <img src="http://irishphoto.ie/wp-content/uploads/2015/08/cropped-ipf-banner4.png">
     </div>
     <div class="row">
-        <div style="text-align: center"><h1>Results</h1></div>
+        <div style="text-align: center"><h1>Judges Comments</h1></div>
     </div>
 
     <div class="page-break"></div>
