@@ -17,21 +17,15 @@
         <div style="text-align: center"><h1>Monochrome Panels</h1></div>
     </div>
 
-    @foreach ($mono_hc as $panel)
+    @foreach ($mono as $panel)
         <div class="page-break"></div>
 
-        <h3 style="text-align: center">
-            Monochrome Highly Commended
-        </h3>
-
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}"
-                                                         style="max-height: 500px; max-width: 1000px;"></div>
-        <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                - {{ $result->title }}</h3>
-        </div>
-        <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+        <h3 style="text-align: center">Monochrome Panel {{$panel}} </h3>
 
 
+        <div class="row" style="text-align: center"><img
+                    src="{{ url('/') }}/uploads/{{$panel}}/{{$panel}}_mono_contact_sheet.jpg"
+                    style="max-height: 500px; max-width: 1000px;"></div>
 
     @endforeach
 
@@ -42,5 +36,17 @@
     <div class="row">
         <div style="text-align: center"><h1>Colour Panels</h1></div>
     </div>
+
+    @foreach ($mono as $panel)
+        <div class="page-break"></div>
+
+        <h3 style="text-align: center">Colour Panel {{$panel}} </h3>
+
+
+        <div class="row" style="text-align: center"><img
+                    src="{{ url('/') }}/uploads/{{$panel}}/{{$panel}}_colour_contact_sheet.jpg"
+                    style="max-height: 500px; max-width: 1000px;"></div>
+
+    @endforeach
 
 @endsection
