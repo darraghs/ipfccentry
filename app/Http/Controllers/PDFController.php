@@ -27,7 +27,8 @@ class PDFController extends Controller
     }
 
     public  function awardsPDF(){
-        $pdf = PDF::loadView('admin.awards_listPDF');
+        $pageArray = app('App\Http\Controllers\AdminResultsController')->getResults();
+        $pdf = PDF::loadView('admin.awards_listPDF', $pageArray );
         $pdf->setPaper('a4', 'landscape');
         return $pdf->download('awards.pdf');
     }
