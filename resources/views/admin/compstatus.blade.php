@@ -21,11 +21,19 @@
                             <td class="col-sm-4 col-md-2">{{ $status->status }}</td>
 
                             <td class="col-sm-4 col-md-2 col-md-push-2">{{ Form::radio('current', $status->id, $status->current) }} </td>
-
+                            <td class="col-sm-4 col-md-2 col-md-push-2">
+                                @if( $status->id == 5)
+                                    <a href="{{ url('pdf/commentsPDF') }}">Comments PDF</a>
+                                @endif
+                                    @if( $status->id == 6)
+                                        <a href="{{ url('pdf/awardsPDF') }}">Awards PDF</a>
+                                    @endif
+                            </td>
                         </tr>
                     @endforeach
                     <tr><td></td><td></td></tr>
                     <tr>
+                        <td></td>
                         <td></td>
                        <td>
                         {{ Form::submit('Set Status') }}
