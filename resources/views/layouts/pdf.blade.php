@@ -12,8 +12,7 @@
     <title>{{ config('app.name', 'IPF Club Championship') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
     <style>
         .page-break {
