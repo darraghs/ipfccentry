@@ -20,11 +20,11 @@
     @foreach ($mono as $panel)
         <div class="page-break"></div>
 
-        <h3 style="text-align: center">Monochrome Panel {{$panel}} </h3>
+        <h3 style="text-align: center">Monochrome Panel {{$panel['panel_id']}} </h3>
 
 
         <div class="row" style="text-align: center"><img
-                    src="{{ url('/') }}/uploads/{{$panel}}/{{$panel}}_mono_contact_sheet.jpg"
+                    src="{{ url('/') }}/uploads/{{$panel['club_id']}}/{{$panel['club_id']}}_mono_contact_sheet.jpg"
                     style="max-height: 500px; max-width: 1000px;"></div>
 
     @endforeach
@@ -40,11 +40,11 @@
     @foreach ($mono as $panel)
         <div class="page-break"></div>
 
-        <h3 style="text-align: center">Colour Panel {{$panel}} </h3>
+        <h3 style="text-align: center">Colour Panel {{$panel['panel_id']}} </h3>
 
 
         <div class="row" style="text-align: center"><img
-                    src="{{ url('/') }}/uploads/{{$panel}}/{{$panel}}_colour_contact_sheet.jpg"
+                    src="{{ url('/') }}/uploads/{{$panel['club_id']}}/{{$panel['club_id']}}_colour_contact_sheet.jpg"
                     style="max-height: 500px; max-width: 1000px;"></div>
 
     @endforeach
