@@ -29,10 +29,10 @@ class PDFController extends Controller
 
 
             if( $clubEntry->hasMonoPanel($entry->club_id) ){
-                array_push($monoPanels, $entry->panel_number);
+                array_push($monoPanels, $entry->club_id);
             }
             if( $clubEntry->hasColourPanel($entry->club_id) ){
-                array_push($colourPanels, $entry->panel_number);
+                array_push($colourPanels, $entry->club_id);
             }
 
         }
@@ -51,10 +51,10 @@ class PDFController extends Controller
 
 
             if( $clubEntry->hasMonoPanel($entry->club_id) ){
-                array_push($monoPanels, $entry->panel_number);
+                array_push($monoPanels, $entry->club_id);
             }
             if( $clubEntry->hasColourPanel($entry->club_id) ){
-                array_push($colourPanels, $entry->panel_number);
+                array_push($colourPanels, $entry->club_id);
             }
 
         }
