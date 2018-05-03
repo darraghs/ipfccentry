@@ -63,6 +63,11 @@ Route::get('/admin/clubstatus','AdminClubEntryController@status')->name('clubsta
 Route::get('/admin/compstatus','CompStatusController@index')->name('compstatus');
 Route::post('/admin/updateCompState','CompStatusController@updateCompState')->name('updateCompState');
 
+Route::get('/pdf/commentsPDF', 'PDFController@commentsPDF')->name('commentsPDF');
+Route::get('/pdf/comments', 'PDFController@comments')->name('comments');
+Route::get('/pdf/awards', 'PDFController@awards')->name('awards');
+Route::get('/pdf/awardsPDF', 'PDFController@awardsPDF')->name('awardsPDF');
+
 
 
 Auth::routes();
