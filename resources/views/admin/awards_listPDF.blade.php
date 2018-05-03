@@ -282,10 +282,10 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    style="max-height: 250px; max-width: 1000px;"></div>
+                    style="max-height: 230px; max-width: 1000px;"></div>
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    style="max-height: 250px; max-width: 1000px;"></div>
+                    style="max-height: 230px; max-width: 1000px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -302,10 +302,10 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    style="max-height: 250px; max-width: 1000px;"></div>
+                    style="max-height: 230px; max-width: 1000px;"></div>
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    style="max-height: 250px; max-width: 1000px;"></div>
+                    style="max-height: 230px; max-width: 1000px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -321,10 +321,10 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    style="max-height: 250px; max-width: 1000px;"></div>
+                    style="max-height: 230px; max-width: 1000px;"></div>
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    style="max-height: 250px; max-width: 1000px;"></div>
+                    style="max-height: 230px; max-width: 1000px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
