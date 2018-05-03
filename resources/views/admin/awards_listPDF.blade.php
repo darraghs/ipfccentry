@@ -316,7 +316,7 @@
     @foreach ($first_overall as $result)
         <div class="page-break"></div>
 
-        <h3 style="text-align: center">Sean Casey Memorial Trophy Winner</h3>
+        <h1 style="text-align: center">Sean Casey Memorial Trophy Winner</h1>
 
 
         <div class="row" style="text-align: center"><img
