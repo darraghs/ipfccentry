@@ -30,7 +30,7 @@ $('.authorfield').change(function(event){
 
             _token: window.Laravel.csrfToken
         },
-        url: '/entry/updateAuthor',
+        url: './entry/updateAuthor',
         type: 'POST',
         dataType: 'json',
         success: function (data) {
@@ -55,7 +55,7 @@ $('.titlefield').change(function(event){
 
             _token: window.Laravel.csrfToken
         },
-        url: '/entry/updateTitle',
+        url: './entry/updateTitle',
         type: 'POST',
         dataType: 'json',
         success: function (data) {
@@ -84,7 +84,7 @@ $('.scoring').change(function(event){
 
                 _token: window.Laravel.csrfToken
             },
-            url: '/admin/setScore',
+            url: './admin/setScore',
             type: 'POST',
             dataType: 'json',
             success: function (data) {
@@ -119,7 +119,7 @@ $('.selectwinner').change(function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/setawards',
+        url: './admin/setawards',
         type: 'POST',
         dataType: 'json',
         success: function (data) {
@@ -141,7 +141,7 @@ $('.approve').on('click', function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/approveUser',
+        url: './admin/approveUser',
         type: 'POST',
         dataType: 'json',
         success: function (data) {
@@ -161,7 +161,7 @@ $('.admin').on('click', function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/setAdmin',
+        url: './admin/setAdmin',
         type: 'POST',
         dataType: 'json',
         success: function (data) {
@@ -181,7 +181,7 @@ $('.payment').change(function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/setPaid/'+cludId+"/"+method,
+        url: './admin/setPaid/'+cludId+"/"+method,
         type: 'POST',
         dataType: 'json',
         success: function (data) {
@@ -329,7 +329,7 @@ function validateImage(imageInput) {
 
                     $.ajax({
                         // Your server script to process the upload
-                        url: '/entry/fileUpload',
+                        url: './entry/fileUpload',
                         type: 'POST',
 
                         // Form data
@@ -440,7 +440,7 @@ $('.payment').change(function () {
 
             _token: window.Laravel.csrfToken
         },
-        url: '/admin/setPaid/'+cludId+"/"+method,
+        url: './admin/setPaid/'+cludId+"/"+method,
         type: 'POST',
         dataType: 'json',
         success: function (data) {
