@@ -39,11 +39,11 @@
                 </div>
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3>
+                                          width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4>
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
 
 
                 </div>
@@ -61,12 +61,11 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center"><img
-                                src="{{ url('/') }}/uploads/200_{{$result->image}}">
+                    <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="1000px">
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
                 </div>
             </div>
         </div>
@@ -82,12 +81,11 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center"><img
-                                src="{{ url('/') }}/uploads/200_{{$result->image}}">
+                    <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="1000px">
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
 
                 </div>
             </div>
@@ -105,12 +103,11 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center"><img
-                                src="{{ url('/') }}/uploads/200_{{$result->image}}">
+                    <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="1000px">
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
 
                 </div>
             </div>
@@ -140,12 +137,11 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center"><img
-                                src="{{ url('/') }}/uploads/200_{{$result->image}}">
+                    <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="1000px">
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
 
                 </div>
             </div>
@@ -162,12 +158,11 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center"><img
-                                src="{{ url('/') }}/uploads/200_{{$result->image}}">
+                    <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="1000px">
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
 
                 </div>
             </div>
@@ -183,12 +178,11 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center"><img
-                                src="{{ url('/') }}/uploads/200_{{$result->image}}">
+                    <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="1000px">
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
 
                 </div>
             </div>
@@ -204,12 +198,11 @@
 
                 </div>
                 <div class="panel-body">
-                    <div class="row" style="text-align: center"><img
-                                src="{{ url('/') }}/uploads/200_{{$result->image}}">
+                    <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/200_{{$result->image}}" width="1000px">
                     </div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
-                            - {{ $result->title }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->author_name }}
+                            - {{ $result->title }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
 
                 </div>
             </div>
@@ -242,9 +235,9 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
                 </div>
             </div>
@@ -262,9 +255,9 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
                 </div>
             </div>
@@ -283,9 +276,9 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
 
                 </div>
@@ -317,9 +310,9 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
                 </div>
             </div>
@@ -337,9 +330,9 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
                 </div>
             </div>
@@ -358,9 +351,9 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
                 </div>
             </div>
@@ -392,12 +385,12 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                        ></div>
+                                width="1000px"></div>
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
 
                 </div>
@@ -417,12 +410,12 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                        ></div>
+                                width="1000px"></div>
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
                 </div>
             </div>
@@ -441,12 +434,12 @@
                 <div class="panel-body">
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                        ></div>
+                                width="1000px"></div>
                     <div class="row" style="text-align: center"><img
                                 src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                        ></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
-                    <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
+                                width="1000px"></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->clubname }}</h4></div>
+                    <div class="row"><h4 style="text-align: center">{{ $result->score }}</h4></div>
 
 
                 </div>
