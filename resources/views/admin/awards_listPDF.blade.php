@@ -25,7 +25,7 @@
         </h3>
 
         <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}"
-                                                         width="640px" style="max-height: 640px;"></div>
+                                                         style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3>
         </div>
@@ -40,7 +40,7 @@
         <div class="page-break"></div>
 
         <h3 style="text-align: center">Monochrome Bronze Medal</h3>
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" width="640px" style="max-height: 640px;">
+        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" style="max-height: 640px; max-width: 640px">
         </div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3></div>
@@ -54,7 +54,7 @@
         <h3 style="text-align: center">Monochrome Silver Medal</h3>
 
 
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" width="640px" style="max-height: 640px;">
+        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" style="max-height: 640px; max-width: 640px;">
         </div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3></div>
@@ -71,7 +71,7 @@
         <h3 style="text-align: center">Monochrome Gold Medal</h3>
 
 
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" width="640px" style="max-height: 640px;">
+        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" style="max-height: 640px; max-width: 640px;">
         </div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3></div>
@@ -96,7 +96,7 @@
         <h3 style="text-align: center">Colour Highly Commended</h3>
 
 
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" width="640px" style="max-height: 640px;">
+        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" style="max-height: 640px; max-width: 640px;">
         </div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3></div>
@@ -112,7 +112,7 @@
         <h3 style="text-align: center">Colour Bronze Medal</h3>
 
 
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" width="640px" style="max-height: 640px;">
+        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" style="max-height: 640px; max-width: 640px;">
         </div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3></div>
@@ -127,7 +127,7 @@
         <h3 style="text-align: center">Colour Silver Medal</h3>
 
 
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" width="640px" style="max-height: 640px;">
+        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" style="max-height: 640px; max-width: 640px;">
         </div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3></div>
@@ -142,7 +142,7 @@
         <h3 style="text-align: center">Colour Gold Medal</h3>
 
 
-        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" width="640px" style="max-height: 640px;">
+        <div class="row" style="text-align: center"><img src="{{ url('/') }}/uploads/{{$result->image}}" style="max-height: 640px; max-width: 640px;">
         </div>
         <div class="row"><h3 style="text-align: center">{{ $result->author_name }}
                 - {{ $result->title }}</h3></div>
@@ -170,7 +170,7 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -185,7 +185,7 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -201,7 +201,7 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -226,7 +226,7 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -241,7 +241,7 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -257,7 +257,7 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -282,10 +282,10 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -302,10 +302,10 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
@@ -321,10 +321,10 @@
 
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row" style="text-align: center"><img
                     src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
-                    width="640px" style="max-height: 640px;"></div>
+                    style="max-height: 640px; max-width: 640px;"></div>
         <div class="row"><h3 style="text-align: center">{{ $result->clubname }}</h3></div>
         <div class="row"><h3 style="text-align: center">{{ $result->score }}</h3></div>
 
