@@ -27,12 +27,14 @@ class PDFController extends Controller
         $colourPanels = [];
         foreach ($entries as $entry) {
 
+            if( $entry->status == 'complete') {
 
-            if( $clubEntry->hasMonoPanel($entry->club_id) ){
-                array_push($monoPanels, array('panel_id'=>$entry->panel_number, 'club_id'=>$entry->club_id));
-            }
-            if( $clubEntry->hasColourPanel($entry->club_id) ){
-                array_push($colourPanels, array('panel_id'=> $entry->panel_number, 'club_id'=>$entry->club_id));
+                if ($clubEntry->hasMonoPanel($entry->club_id)) {
+                    array_push($monoPanels, array('panel_id' => $entry->panel_number, 'club_id' => $entry->club_id));
+                }
+                if ($clubEntry->hasColourPanel($entry->club_id)) {
+                    array_push($colourPanels, array('panel_id' => $entry->panel_number, 'club_id' => $entry->club_id));
+                }
             }
 
         }
