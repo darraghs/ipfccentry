@@ -35,9 +35,9 @@
                         </ol>
                     @else
                         <ol>
-
+                            <li><a href="{{ route('compstatus') }}">Competition Status</a></li>
                             <li><a href="{{ route('userapproval') }}">Users</a></li>
-                            <li><a href="{{ route('clubstatus') }}">Club Status</a></li>
+                            <li><a href="{{ route('clubstatus') }}">Entry Status</a></li>
                             <li><a href="{{ route('colourwinners') }}">Colour Awards</a></li>
                             <li><a href="{{ route('monowinners') }}">Mono Awards</a></li>
                             <li><a href="{{ route('showStandings') }}">Standings</a></li>
