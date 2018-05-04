@@ -12,15 +12,12 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div id="status" class="col-sm-4">
-
-                            {{ Form::hidden('club_id', $club_id, ['id' =>'judge']) }}
-                            {{ Form::hidden('type', $type) }}
+                        <div class="approval">
+                            Please press <b>save</b> when complete to generate a new contact sheet (this will take a few
+                            minuutes)
                         </div>
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-
-                        </div>
+                        {{ Form::hidden('club_id', $club_id, ['id' =>'judge']) }}
+                        {{ Form::hidden('type', $type) }}
 
                     </div>
                     <hr>
@@ -324,6 +321,6 @@
             </div>
         </div>
     </form>
-    @endsection
+@endsection
 
 
