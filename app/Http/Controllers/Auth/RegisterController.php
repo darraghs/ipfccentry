@@ -81,6 +81,7 @@ class RegisterController extends Controller
 
         Mail::to($user)->send(new RegistrationComplete($user));
         Mail::to('darragh.sherwin@gmail.com')->send(new RegistrationComplete($user));
+        Mail::to('manorphoto@eircom.net')->send(new RegistrationComplete($user));
 
         return $user;
     }

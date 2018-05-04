@@ -7,10 +7,10 @@
             <div class="panel-heading">Club Entry</div>
 
             <div class="panel-body">
-
+                
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                     <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="MB67DJ5FRKTU4">
+                    <input type="hidden" name="hosted_button_id" value="Z97ETMWE64UHE">
                     <table>
                         <tr>
                             <td><input type="hidden" name="on0" value="Club Name (*required)">Club Name (*required)</td>
