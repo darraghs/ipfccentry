@@ -9,6 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Log;
 
 use App\Club;
 use App\ClubEntry;
@@ -94,8 +95,9 @@ class createContactSheet implements ShouldQueue
 
         $outputFile = $outputDir . "/" . $club_id . "_" . $paneltype . "_contact_sheet.jpg";
         $command = "/usr/bin/montage " . $filelocations . " -background '#808080' -geometry 460x460+4+3 -tile 5x2 " . $outputFile . " > /dev/null 2>/dev/null & ";
-
+        Log::warning("Generating ".$paneltype." contact sheet for ".$club_id." with commeand->".$command);
         system($command);
+        Log::warning("Contact sheeet should genrated");
     }
 
 }
