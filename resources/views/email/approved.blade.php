@@ -10,6 +10,6 @@ Please start creating your club entry at <a href="https://dslr-ipf.org/ipfccentr
 <br>
 Regards
 <br>
-Darragh Sherwin
+Irish Photographic Federation
 </body>
 </html>

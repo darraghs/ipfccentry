@@ -11,7 +11,7 @@
 
                 @if( Auth::user()->isApproved() )
                     @if( ! Auth::user()->isAdmin() )
-                        You can check your panels, payment or entry by clickling on a link below
+                        You can check your panels, payment or entry by clicking on a link below
                         <ol>
 
                             @if($status->hasEntry() == false)

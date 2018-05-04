@@ -9,6 +9,6 @@ You will receive an email in the next day or two after your account has been app
 Once your account is approved, you can begin uploading your panels<br>
 Regards
 <br>
-Darragh Sherwin
+Irish Photographic Federation
 </body>
 </html>
