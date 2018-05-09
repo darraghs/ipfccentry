@@ -457,7 +457,7 @@ class ClubEntryController extends Controller
         $image = PanelImage::find($imageId);
         if( is_null($newTitle))
         {
-            $image->title = 'No Title';
+            $image->title = '';
         }
         else{
             $image->title = $newTitle;
