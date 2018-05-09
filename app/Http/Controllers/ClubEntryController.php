@@ -452,6 +452,7 @@ class ClubEntryController extends Controller
 
     public function updateTitle(Request $request)
     {
+        $title = 'No Title';
         $imageId = $request->input('id');
         $title = $request->input('title');
         $image = PanelImage::find($imageId);
@@ -505,7 +506,7 @@ class ClubEntryController extends Controller
         $outputFile = $outputDir . "/" . $club_id . "_" . $paneltype . "_contact_sheet.jpg";
         $command = "/usr/bin/montage " . $filelocations . " -background '#808080' -geometry 460x460+4+3 -tile 5x2 " . $outputFile . " > /dev/null 2>/dev/null & ";
         system($command);
-        
+
     }
 
 
