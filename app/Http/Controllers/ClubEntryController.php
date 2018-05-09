@@ -452,11 +452,16 @@ class ClubEntryController extends Controller
 
     public function updateTitle(Request $request)
     {
-        $title = 'No Title';
         $imageId = $request->input('id');
-        $title = $request->input('title');
+        $newTitle = $request->input('title');
         $image = PanelImage::find($imageId);
-        $image->title = $title;
+        if( is_null($newTitle))
+        {
+            $image->title = 'No Title';
+        }
+        else{
+            $image->title = $newTitle;
+        }
         $image->save();
 
         $panel = ClubPanel::where('image_id', $image->id)->get();
