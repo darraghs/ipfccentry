@@ -42,6 +42,7 @@
                             <li><a href="{{ route('monowinners') }}">Mono Awards</a></li>
                             <li><a href="{{ route('showStandings') }}">Standings</a></li>
                             <li><a href="{{ route('showAdminResults') }}">Overall Results</a></li>
+                            <li><a href="{{ route('clubs.index') }}">Admin Clubs</a></li>
                             @if( strcmp($status->getCurrentStatus() ,'mono_scoring')== 0)
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"

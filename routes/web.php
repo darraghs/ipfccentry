@@ -68,6 +68,8 @@ Route::get('/pdf/comments', 'PDFController@comments')->name('comments');
 Route::get('/pdf/awards', 'PDFController@awards')->name('awards');
 Route::get('/pdf/awardsPDF', 'PDFController@awardsPDF')->name('awardsPDF');
 
+Route::resource('clubs', 'ClubController');
+
 
 
 Auth::routes();
