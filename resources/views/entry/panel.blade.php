@@ -12,14 +12,17 @@
 
                 <div class="panel-body">
                     <div class="row">
-                        <div class="approval">
+                        <div class="panel-body">
                             Please press <b>save</b> when complete to generate a new contact sheet (this will take a few
                             minuutes)
+                            <br/>
+                            <b>All images must be 2400 pixels on the longest side</b>
                         </div>
-                        {{ Form::hidden('club_id', $club_id, ['id' =>'judge']) }}
-                        {{ Form::hidden('type', $type) }}
-
                     </div>
+                    {{ Form::hidden('club_id', $club_id, ['id' =>'judge']) }}
+                    {{ Form::hidden('type', $type) }}
+
+
                     <hr>
 
                     <div class="row">
@@ -248,8 +251,10 @@
                         </span>
                     </div>
                     <div class="row">
+                        <div class="panel-body">
                         <h3>Subsititues</h3>
                         <hr>
+                        </div>
                     </div>
                     <div class="row">
                        <span class="col-lg-2 col-sm-12 picture">
@@ -319,6 +324,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </form>
 @endsection

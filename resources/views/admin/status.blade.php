@@ -6,7 +6,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="approval">
+
                         <span id="status"></span>
+                        Entries Status
                     </div>
                 </div>
                 <div class="panel-body">
