@@ -15,6 +15,19 @@ use App\Club;
 
 class AdminClubEntryController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     public function checkClubPanels($clubid)
     {
         $clubEntry = new ClubEntryController();
