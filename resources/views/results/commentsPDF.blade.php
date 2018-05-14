@@ -37,7 +37,7 @@
         <div style="text-align: center"><h1>Colour Panels</h1></div>
     </div>
 
-    @foreach ($mono as $panel)
+    @foreach ($colour as $panel)
         <div class="page-break"></div>
 
         <h3 style="text-align: center">Colour Panel {{$panel['panel_id']}} </h3>
