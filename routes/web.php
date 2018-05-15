@@ -42,6 +42,7 @@ Route::get('/admin/showColourPanel/{clubid}', 'AdminClubEntryController@showColo
 
 
 Route::get('/admin/scoring/{type}/{judge}','AdminScoringController@scoring')->name('adminscoring');
+Route::get('/admin/scoringSheets/{type}/{judge}','AdminScoringController@scoringSheets')->name('scoringSheets');
 Route::post('/admin/setScore','AdminScoringController@setScore')->name('setScore');
 Route::get('/admin/showAdminResults','AdminResultsController@showAdminResults')->name('showAdminResults');
 
