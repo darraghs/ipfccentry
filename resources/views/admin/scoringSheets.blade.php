@@ -37,9 +37,9 @@
                                         <tr>
                                             <td style="width: 200px">Image</td>
                                             @foreach($images as $id => $data)
-                                                <td style="text-align: center; width: 200px; max-height: 200px;"><img
+                                                <td style="text-align: center;"><img
                                                             src="{{ url('/') }}/uploads/200_{{$data['image']}}"
-                                                            width="200px" style="max-height: 200px"></td>
+                                                            style="max-width: 200px; max-height: 200px"></td>
                                             @endforeach
                                         </tr>
 
