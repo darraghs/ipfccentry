@@ -7,7 +7,7 @@
         @if( Auth::user()->isAdmin() )
             <div class="panel panel-default">
                 <div class="panel-heading">
-                        <h3>Scoring {{$data['type']}} Panels for Judge {{ $data['judge'] }}</h3>
+                    <h3>Scoring {{$data['type']}} Panels for Judge {{ $data['judge'] }}</h3>
                 </div>
                 <div class="panel-body">
 
@@ -63,9 +63,9 @@
                             </div>
                             <hr/>
                         @endforeach
-			@if( $panel_number%2 == 0 )
-				<div class="page-break"></div>
-			@endif
+                        @if( $panel_number%2 == 0 )
+                            <div class="page-break"></div>
+                        @endif
                     @endforeach
 
 

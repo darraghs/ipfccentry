@@ -40,15 +40,40 @@
                             </td>
                         </tr>
 
-                        <tr>
-                            <td> @if( (strcmp($compstatus->getCurrentStatus() ,'comments')== 0 || strcmp($compstatus->getCurrentStatus() ,'finished')== 0 ) && $status->id>4 )
+                        @if($compstatus->getCurrentStatusFull()['id'] < 5)
+                            <tr>
+                                <td>Scoring Sheets</td>
+                            </tr>
+                            <tr>
+                                <td>Monochrome</td>
+                            </tr>
+                            <tr>
+                                <td><a href="{{url('admin/scoringSheets/mono/1')}}">Judge 1</a></td>
+                                <td><a href="{{url('admin/scoringSheets/mono/2')}}">Judge 2</a></td>
+                                <td><a href="{{url('admin/scoringSheets/mono/3')}}">Judge 3</a></td>
+                            </tr>
+                            <tr>
+                                <td>Scoring Sheets</td>
+                            </tr>
+                            <tr>
+                                <td>Colour</td>
+                            </tr>
+                            <td><a href="{{url('admin/scoringSheets/colour/1')}}">Judge 1</a></td>
+                            <td><a href="{{url('admin/scoringSheets/colour/2')}}">Judge 2</a></td>
+                            <td><a href="{{url('admin/scoringSheets/colour/3')}}">Judge 3</a></td>
+
+                            </tr>
+                        @else
+                            <tr>
+                                <td>
                                     <a href="{{ url('pdf/commentsPDF') }}">Comments PDF</a>
-                                @endif</td>
-                            <td>@if( strcmp($compstatus->getCurrentStatus() ,'finished')== 0 || strcmp($compstatus->getCurrentStatus() ,'comments')== 0  )
+                                </td>
+                                <td>
                                     <a href="{{ url('pdf/awardsPDF') }}">Awards PDF</a>
-                                @endif</td>
-                            <td></td>
-                        </tr>
+                                </td>
+                                <td></td>
+                            </tr>
+                        @endif
 
 
                     </table>

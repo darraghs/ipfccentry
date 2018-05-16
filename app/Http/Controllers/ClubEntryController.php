@@ -480,6 +480,10 @@ class ClubEntryController extends Controller
         return $status->status;
     }
 
+    public function getCurrentStatusFull() {
+        return CompetitionStatus::where('current', '=', 1)->get()[0];
+    }
+
     private function canUpdateEntry()
     {
         if (Auth::user()->isAdmin()) {
