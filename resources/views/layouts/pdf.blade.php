@@ -18,10 +18,12 @@
         .page-break {
             page-break-after: always;
         }
+	@page { margin-left: 10px; margin-top: 10px; margin-right: 10px; margin-bottom: 0px; }
+	html{ margin-left: 10px; margin-top: 10px; margin-right: 10px; margin-bottom: 0px; }
     </style>
 
 </head>
-<body>
+<body style="margin: 0px; padding: 0px">
 <div id="app">
 
 

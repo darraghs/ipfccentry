@@ -93,10 +93,10 @@ class AdminScoringController extends Controller
 
         //== dd($pageArray);
 
-//        $pdf = PDF::loadView('admin.scoringSheets', $pageArray);
-//        $pdf->setPaper('a4', 'portrait');
-//        return $pdf->download('scoring_sheet_'.$judge.'_'.$type.'.pdf');
-        return view('admin.scoringSheets', $pageArray);
+//	return view('admin.scoringSheets', $pageArray);
+        $pdf = PDF::loadView('admin.scoringSheets', $pageArray);
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->download('scoring_sheet_'.$judge.'_'.$type.'.pdf');
 
     }
 
