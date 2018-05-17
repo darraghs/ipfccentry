@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 @inject('status', 'App\Http\Controllers\ClubEntryController')
+@inject('compstatus', 'App\Http\Controllers\PublicStatusController')
 <html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8">
@@ -82,10 +83,12 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        @if($compstatus->getCurrentStatusFull()['id'] == 1)
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @endif
                     @else
                         @if(Auth::user()->isAdmin())
-                            @if( strcmp($status->getCurrentStatus() ,'mono_scoring')== 0)
+                            @if( strcmp($compstatus->getCurrentStatus() ,'mono_scoring')== 0)
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                        aria-expanded="false">
@@ -99,7 +102,7 @@
                                     </ul>
                                 </li>
                             @endif
-                            @if( strcmp($status->getCurrentStatus() ,'colour_scoring')== 0)
+                            @if( strcmp($compstatus->getCurrentStatus() ,'colour_scoring')== 0)
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                        aria-expanded="false">
