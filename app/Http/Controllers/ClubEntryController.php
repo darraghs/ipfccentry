@@ -516,6 +516,8 @@ class ClubEntryController extends Controller
         $command = "/usr/bin/montage " . $filelocations . " -background '#808080' -geometry 460x460+4+3 -tile 5x2 " . $outputFile . " > /dev/null 2>/dev/null & ";
         system($command);
 
+        dd( "Running command: ".$command);
+
     }
 
 
