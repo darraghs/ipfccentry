@@ -46,6 +46,7 @@ Route::get('/admin/scoringSheets/{type}/{judge}','AdminScoringController@scoring
 Route::post('/admin/setScore','AdminScoringController@setScore')->name('setScore');
 Route::get('/admin/showAdminResults','AdminResultsController@showAdminResults')->name('showAdminResults');
 
+Route::get('/admin/generateSheet/{paneltype}/{club_id}','ClubEntryController@createContactSheets')->name('createContactSheets');
 
 Route::get('/results/showOverallResults','AdminResultsController@showOverallResults')->name('showOverallResults');
 Route::get('/results/showStandings','AdminResultsController@showStandings')->name('showStandings');
