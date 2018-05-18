@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use PDF;
+use ZipArchive;
 
 class AdminResultsController extends Controller
 {
@@ -460,10 +461,10 @@ class AdminResultsController extends Controller
             $clubid = $entry->club_id;
             $club = Club::find($clubid);
             if($this->hasMonoPanel($clubid)){
-                copy("uploads/".$clubid."/".$clubid."_mono_contact_sheet.jpg", "website/panels/mono".str_replace(" ", "_", $club->clubname).".jpg");
+                copy("uploads/".$clubid."/".$clubid."_mono_contact_sheet.jpg", "website/panels/mono/".str_replace(" ", "_", $club->clubname).".jpg");
             }
             if( $this->hasColourPanel($clubid)){
-                copy("uploads/".$clubid."/".$clubid."_colour_contact_sheet.jpg", "website/panels/colour".str_replace(" ", "_", $club->clubname).".jpg");
+                copy("uploads/".$clubid."/".$clubid."_colour_contact_sheet.jpg", "website/panels/colour/".str_replace(" ", "_", $club->clubname).".jpg");
             }
         }
 
