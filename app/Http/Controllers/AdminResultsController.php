@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\PanelImage;
 use App\Club;
+use App\ClubEntry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -440,4 +441,89 @@ class AdminResultsController extends Controller
         }
 
     }
+
+    public function createImagesZip(Request $request)
+    {
+
+        $public_dir=public_path();
+        $this->delete_files($public_dir."/website");
+        mkdir($public_dir."/website");
+        mkdir($public_dir."/website/panels");
+        mkdir($public_dir."/website/panels/mono");
+        mkdir($public_dir."/website/panels/colour");
+        mkdir($public_dir."/website/winners");
+
+        $results = $this->getResults();
+        $entries = ClubEntry::where('status', 'complete')->get();
+
+        foreach( $entries as $entry ){
+            $clubid = $entry->club_id;
+            $club = Club::find($clubid);
+            if($this->hasMonoPanel($clubid)){
+                copy("uploads/".$clubid."/".$clubid."_mono_contact_sheet.jpg", "website/panels/mono".str_replace(" ", "_", $club->clubname).".jpg");
+            }
+            if( $this->hasColourPanel($clubid)){
+                copy("uploads/".$clubid."/".$clubid."_colour_contact_sheet.jpg", "website/panels/colour".str_replace(" ", "_", $club->clubname).".jpg");
+            }
+        }
+
+        $zipFileName = "ipf_website_images.zip";
+
+        $zipFile = new ZipArchive();
+        if ($zipFile->open($public_dir . '/' . $zipFileName, ZipArchive::CREATE) === TRUE) {
+            // Add File in ZipArchive
+
+            $files = new RecursiveIteratorIterator (new RecursiveDirectoryIterator("website"), RecursiveIteratorIterator::LEAVES_ONLY);
+
+            // let's iterate
+            foreach ($files as $name => $file) {
+                $filePath = $file->getRealPath();
+                $zipFile->addFile($filePath);
+            }
+            // Close ZipArchive
+            $zipFile->close();
+        }
+        // Set Header
+        $headers = array(
+            'Content-Type' => 'application/octet-stream',
+        );
+        $filetopath=$public_dir.'/'.$zipFileName;
+        // Create Download Response
+        if(file_exists($filetopath)){
+            return response()->download($filetopath,$zipFileName,$headers);
+        }
+
+
+    }
+
+    /*
+     * php delete function that deals with directories recursively
+     */
+    private function delete_files($target)
+    {
+        if (is_dir($target)) {
+            $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
+
+            foreach ($files as $file) {
+                delete_files($file);
+            }
+
+            rmdir($target);
+        } elseif (is_file($target)) {
+            unlink($target);
+        }
+    }
+
+    public function hasMonoPanel($clubid)
+    {
+        $panels = ClubPanel::where('club_id', $clubid)->where('image_type', 'mono')->get();
+        return (sizeof($panels) > 0);
+    }
+
+    public function hasColourPanel($clubid)
+    {
+        $panels = ClubPanel::where('club_id', $clubid)->where('image_type', 'colour')->get();
+        return (sizeof($panels) > 0);
+    }
+
 }
