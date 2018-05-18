@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\DB;
 
 use PDF;
 
-createImagesZip
 class AdminResultsController extends Controller
 {
 
