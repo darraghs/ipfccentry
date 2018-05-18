@@ -70,6 +70,8 @@ Route::get('/pdf/comments', 'PDFController@comments')->name('comments');
 Route::get('/pdf/awards', 'PDFController@awards')->name('awards');
 Route::get('/pdf/awardsPDF', 'PDFController@awardsPDF')->name('awardsPDF');
 
+Route::get('create-zip', 'AdminResultsController@createImagesZip')->name('create-zip');
+
 Route::resource('clubs', 'ClubController');
 
 
