@@ -474,7 +474,7 @@ class AdminResultsController extends Controller
         if ($zipFile->open($public_dir . '/' . $zipFileName, ZipArchive::CREATE) === TRUE) {
             // Add File in ZipArchive
 
-            $files = new RecursiveIteratorIterator (new RecursiveDirectoryIterator("website"), RecursiveIteratorIterator::LEAVES_ONLY);
+            $files = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir."/website"), RecursiveIteratorIterator::LEAVES_ONLY);
 
             // let's iterate
             foreach ($files as $name => $file) {
@@ -509,6 +509,9 @@ class AdminResultsController extends Controller
                 foreach ($files as $file) {
                     $this->delete_files($file);
                 }
+
+
+
 
                 rmdir($target);
             } elseif (is_file($target)) {
