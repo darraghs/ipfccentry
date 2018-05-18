@@ -6,12 +6,13 @@ use Illuminate\Support\Facades\Auth;
 use App\PanelImage;
 use App\Club;
 use App\ClubEntry;
+use App\ClubPanel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use PDF;
 
-
+createImagesZip
 class AdminResultsController extends Controller
 {
 
