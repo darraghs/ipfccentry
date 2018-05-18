@@ -15,6 +15,7 @@ use ZipArchive;
 
 use \RecursiveIteratorIterator;
 use \RecursiveArrayIterator;
+use \RecursiveDirectoryIterator;
 
 class AdminResultsController extends Controller
 {
@@ -474,15 +475,28 @@ class AdminResultsController extends Controller
         $zipFileName = "ipf_website_images.zip";
 
         $zipFile = new ZipArchive();
+	if( file_exists($public_dir.'/'.$zipFileName)) {
+		unlink($public_dir.'/'.$zipFileName);
+	}
         if ($zipFile->open($public_dir . '/' . $zipFileName, ZipArchive::CREATE) === TRUE) {
             // Add File in ZipArchive
 
-            $files = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir."/website"), RecursiveIteratorIterator::LEAVES_ONLY);
+            $monofiles = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir."/website/panels/mono"), RecursiveIteratorIterator::LEAVES_ONLY);
 
             // let's iterate
-            foreach ($files as $name => $file) {
-                $filePath = $file->getRealPath();
-                $zipFile->addFile($filePath);
+            foreach ($monofiles as $name => $monofile) {
+                $filePath = $monofile->getRealPath();
+		if (file_exists($filePath) && is_file($filePath)) {
+                	$zipFile->addFile($filePath, "panels/mono/".$monofile->getFilename());
+		}
+            }
+            $colourfiles = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir."/website/panels/colour"), RecursiveIteratorIterator::LEAVES_ONLY);
+            // let's iterate
+            foreach ($colourfiles as $name => $colourfile) {
+                $filePath = $colourfile->getRealPath();
+		if (file_exists($filePath) && is_file($filePath)) {
+                	$zipFile->addFile($filePath, "panels/colour/".$colourfile->getFilename());
+		}
             }
             // Close ZipArchive
             $zipFile->close();
@@ -512,11 +526,9 @@ class AdminResultsController extends Controller
                 foreach ($files as $file) {
                     $this->delete_files($file);
                 }
-
-
-
-
-                rmdir($target);
+		if( file_exists($target)){
+                	rmdir($target);
+		}
             } elseif (is_file($target)) {
                 unlink($target);
             }
