@@ -499,7 +499,7 @@ class AdminResultsController extends Controller
     /*
      * php delete function that deals with directories recursively
      */
-    private function delete_files($target)
+    public function delete_files($target)
     {
         if (is_dir($target)) {
             $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
