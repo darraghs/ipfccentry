@@ -501,16 +501,18 @@ class AdminResultsController extends Controller
      */
     public function delete_files($target)
     {
-        if (is_dir($target)) {
-            $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
+        if(file_exists($target)) {
+            if (is_dir($target)) {
+                $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
 
-            foreach ($files as $file) {
-                $this->delete_files($file);
+                foreach ($files as $file) {
+                    $this->delete_files($file);
+                }
+
+                rmdir($target);
+            } elseif (is_file($target)) {
+                unlink($target);
             }
-
-            rmdir($target);
-        } elseif (is_file($target)) {
-            unlink($target);
         }
     }
 
