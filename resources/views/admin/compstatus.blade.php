@@ -37,13 +37,15 @@
                                     <td>
                                         <a href="{{ url('pdf/commentsPDF') }}">Comments PDF</a>
                                     </td>
-                                    <td></td>
+                                    <td>
+
+                                     </td>
                                     <td></td>
                                 @elseif($status->id == 6 && $compstatus->getCurrentStatusFull()['id'] > 4 )
                                     <td>
                                         <a href="{{ url('pdf/awardsPDF') }}">Awards PDF</a>
                                     </td>
-                                    <td></td>
+                                    <td><a href="{{ url('create-zip') }}">Images for Website Zip</a></td>
                                     <td></td>
                                 @else
                                     <td></td>

@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use App\PanelImage;
 use App\Club;
 use App\ClubEntry;
 use App\ClubPanel;
+use App\PanelImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
 use PDF;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use ZipArchive;
-
-use \RecursiveIteratorIterator;
-use \RecursiveArrayIterator;
-use \RecursiveDirectoryIterator;
 
 class AdminResultsController extends Controller
 {
@@ -25,20 +22,23 @@ class AdminResultsController extends Controller
         $this->middleware('auth');
     }
 
-    public function colourwinners(Request $request){
+    public function colourwinners(Request $request)
+    {
         return $this->getWinners('colour');
     }
 
-    public function monowinners(Request $request){
+    public function monowinners(Request $request)
+    {
         return $this->getWinners('mono');
     }
 
-    public function getWinners($type){
+    public function getWinners($type)
+    {
 
-        $query = 'SELECT ce.panel_number, p.id AS pid, p.panel_order, p.image, p.award, p.title, (p.Judge1_score + p.Judge2_Score + p.Judge3_Score) AS TOTAL FROM panel_images p, club_panels epl, club_entries ce WHERE ce.club_id = epl.club_id AND epl.image_id = p.id AND epl.image_type = "'.$type.'" AND ce.panel_number IS NOT NULL ORDER BY p.award DESC, TOTAL DESC LIMIT 11';
+        $query = 'SELECT ce.panel_number, p.id AS pid, p.panel_order, p.image, p.award, p.title, (p.Judge1_score + p.Judge2_Score + p.Judge3_Score) AS TOTAL FROM panel_images p, club_panels epl, club_entries ce WHERE ce.club_id = epl.club_id AND epl.image_id = p.id AND epl.image_type = "' . $type . '" AND ce.panel_number IS NOT NULL ORDER BY p.award DESC, TOTAL DESC LIMIT 11';
 
         $winners = DB::select(DB::raw($query));
-        return view('admin.winners', ['winners'=>$winners]);
+        return view('admin.winners', ['winners' => $winners]);
     }
 
     public function update(Request $request)
@@ -78,7 +78,8 @@ class AdminResultsController extends Controller
     }
 
 
-    public function  setawards(Request $request){
+    public function setawards(Request $request)
+    {
         $imageId = $request->input('imageId');
         $award = $request->input('award');
         $image = PanelImage::find($imageId);
@@ -92,7 +93,7 @@ class AdminResultsController extends Controller
     {
 
         $club = Club::find($club_id);
-        if( !is_null($club )) {
+        if (!is_null($club)) {
             $panels = ClubPanel::where('club_id', $club->id)->where('image_type', $type)->orderBy('image_id')->get();
             $counter = 1;
             $pageArray = ['club_id' => $club->id, 'club' => $club->clubname, 'type' => $type];
@@ -101,35 +102,35 @@ class AdminResultsController extends Controller
 
                 $image = PanelImage::find($panel->image_id);
 
-                if( strcmp($image->image, "" )==0){
+                if (strcmp($image->image, "") == 0) {
                     $pageArray['image_' . $counter] = $image->image;
-                }
-                else {
+                } else {
                     $filename = '/uploads/200_' . $image->image;
-                    if( ! file_exists($filename)){
-                        $filename ='/uploads/' . $image->image;
+                    if (!file_exists($filename)) {
+                        $filename = '/uploads/' . $image->image;
                     }
                     $pageArray['image_' . $counter] = $filename;
                 }
-                $pageArray['author_'.$counter] = $image->author_name;
-                $pageArray['title_'.$counter] = $image->title;
+                $pageArray['author_' . $counter] = $image->author_name;
+                $pageArray['title_' . $counter] = $image->title;
                 $counter++;
             }
 
             return view('entry.panel', $pageArray);
-        }
-        else {
+        } else {
             return view('entry.panel', ['id' => '', 'club' => '']);
         }
     }
 
 
-    public function showAdminResults(){
+    public function showAdminResults()
+    {
         $pageArray = $this->getResults();
         return view('admin.awards_list', $pageArray);
     }
 
-    public function showOverallResults(){
+    public function showOverallResults()
+    {
         $pageArray = $this->getResults();
         return view('results.results', $pageArray);
     }
@@ -153,7 +154,7 @@ class AdminResultsController extends Controller
         foreach ($overallQuery as $result) {
 
             $score = $result->score;
-            if( $score > 0 ) {
+            if ($score > 0) {
                 if ($firstPlaceScoreOverall == 0) {
                     $firstPlaceScoreOverall = $score;
                     array_push($firstPlaceOverall, $result);
@@ -193,7 +194,7 @@ class AdminResultsController extends Controller
         foreach ($colourResults as $result) {
 
             $score = $result->score;
-            if( $score > 0 ) {
+            if ($score > 0) {
                 if ($firstPlaceScoreColour == 0) {
                     $firstPlaceScoreColour = $score;
                     array_push($firstPlaceColour, $result);
@@ -233,7 +234,7 @@ class AdminResultsController extends Controller
         foreach ($monoResults as $result) {
 
             $score = $result->score;
-            if( $score > 0 ){
+            if ($score > 0) {
 
                 if ($firstPlaceScoreMono == 0) {
                     $firstPlaceScoreMono = $score;
@@ -245,10 +246,10 @@ class AdminResultsController extends Controller
                     array_push($secondPlaceMono, $result);
                 } elseif ($score == $secondPlaceScoreMono) {
                     array_push($secondPlaceMono, $result);
-                } elseif ( $thirdPlaceScoreMono == 0 ){
+                } elseif ($thirdPlaceScoreMono == 0) {
                     $thirdPlaceScoreMono = $score;
                     array_push($thirdPlaceMono, $result);
-                } elseif ( $thirdPlaceScoreMono == $score ){
+                } elseif ($thirdPlaceScoreMono == $score) {
                     array_push($thirdPlaceMono, $result);
                 }
             }
@@ -267,15 +268,15 @@ class AdminResultsController extends Controller
         $colourSilver = [];
         $colourBronze = [];
         $colourHC = [];
-        foreach ($colorWinners as $result){
+        foreach ($colorWinners as $result) {
             $award = $result->award;
-            if( $award == 6 ){
+            if ($award == 6) {
                 array_push($colourGold, $result);
-            } elseif ( $award == 5 ){
+            } elseif ($award == 5) {
                 array_push($colourSilver, $result);
-            } elseif ($award == 4){
+            } elseif ($award == 4) {
                 array_push($colourBronze, $result);
-            } elseif ( $award ==3 ){
+            } elseif ($award == 3) {
                 array_push($colourHC, $result);
             }
 
@@ -287,7 +288,6 @@ class AdminResultsController extends Controller
         $pageArray['colour_hc'] = $colourHC;
 
 
-
         $monoWinnersSQL = 'SELECT c.clubname, p.author_name, p.title, p.image, p.award  FROM panel_images p, club_panels epl, clubs c WHERE epl.club_id=c.id AND epl.image_id = p.id AND epl.image_type = "mono" AND p.award > 0  ORDER BY p.award DESC';
         $monoWinners = DB::select(DB::raw($monoWinnersSQL));
 
@@ -296,15 +296,15 @@ class AdminResultsController extends Controller
         $monoSilver = [];
         $monoBronze = [];
         $monoHC = [];
-        foreach ($monoWinners as $result){
+        foreach ($monoWinners as $result) {
             $award = $result->award;
-            if( $award == 6 ){
+            if ($award == 6) {
                 array_push($monoGold, $result);
-            } elseif ( $award == 5 ){
+            } elseif ($award == 5) {
                 array_push($monoSilver, $result);
-            } elseif ($award == 4){
+            } elseif ($award == 4) {
                 array_push($monoBronze, $result);
-            } elseif ( $award ==3 ){
+            } elseif ($award == 3) {
                 array_push($monoHC, $result);
             }
 
@@ -318,12 +318,14 @@ class AdminResultsController extends Controller
         return $pageArray;
     }
 
-    public function showStandings(){
+    public function showStandings()
+    {
         $pageArray = $this->getStandings();
         return view('results.standings', $pageArray);
     }
 
-    public function getStandings(){
+    public function getStandings()
+    {
         $pageArray = [];
 
         $overallSQL = 'select cp.club_id, cn.clubname, sum(p.Judge1_Score)+sum(p.Judge2_Score)+sum(p.Judge3_Score) as score from club_panels cp,  panel_images p, clubs cn where cn.id=cp.club_id and   cp.image_id=p.id  group by cp.club_id, cn.clubname order by score desc';
@@ -338,22 +340,23 @@ class AdminResultsController extends Controller
         $monoResults = DB::select(DB::raw($monoSQL));
         $monoPlaces = $this->calculatePlacing($monoResults);
 
-        $pageArray= ['overall'=>$overallPlaces, 'colour'=>$colourPlaces, 'mono'=>$monoPlaces];
+        $pageArray = ['overall' => $overallPlaces, 'colour' => $colourPlaces, 'mono' => $monoPlaces];
 
 
         return $pageArray;
 
     }
 
-    private function calculatePlacing( $results ) {
+    private function calculatePlacing($results)
+    {
         $placings = [];
         $lastPlace = 1;
         $lastScore = $results[0]->score;
 
-        foreach( $results as $result ){
+        foreach ($results as $result) {
             $place = [];
             $score = $result->score;
-            if( $score > 0 ) {
+            if ($score > 0) {
                 $place['club_id'] = $result->club_id;
                 $place['clubname'] = $result->clubname;
                 $place['score'] = $result->score;
@@ -372,13 +375,14 @@ class AdminResultsController extends Controller
 
     }
 
-    public function showIndividualScores($clubid = NULL){
+    public function showIndividualScores($clubid = NULL)
+    {
 
-        if( is_null($clubid)) {
+        if (is_null($clubid)) {
             $clubid = Auth::user()->club_id;
         }
         $club = Club::find($clubid);
-        if( !is_null($club)){
+        if (!is_null($club)) {
             $pageArray = $this->getPanelScores($clubid);
             $pageArray['clubname'] = $club->clubname;
             return view('results.scores', $pageArray);
@@ -386,19 +390,20 @@ class AdminResultsController extends Controller
     }
 
 
-    private function getPanelScores($clubid){
+    private function getPanelScores($clubid)
+    {
 
-        $colourPanelSQL='select cp.image_type, pi.id, pi.author_name, pi.title, pi.image, pi.panel_order, pi.award, pi.Judge1_Score, pi.Judge2_Score, pi.Judge3_Score from panel_images pi, club_panels cp where  cp.image_id=pi.id and pi.panel_order < 11 and cp.club_id='.$clubid.' and cp.image_type="colour" order by pi.panel_order';
-        $monoPanelSQL='select cp.image_type, pi.id, pi.author_name, pi.title, pi.image, pi.panel_order, pi.award, pi.Judge1_Score, pi.Judge2_Score, pi.Judge3_Score from panel_images pi, club_panels cp where  cp.image_id=pi.id and pi.panel_order < 11 and cp.club_id='.$clubid.' and cp.image_type="mono" order by pi.panel_order';
+        $colourPanelSQL = 'select cp.image_type, pi.id, pi.author_name, pi.title, pi.image, pi.panel_order, pi.award, pi.Judge1_Score, pi.Judge2_Score, pi.Judge3_Score from panel_images pi, club_panels cp where  cp.image_id=pi.id and pi.panel_order < 11 and cp.club_id=' . $clubid . ' and cp.image_type="colour" order by pi.panel_order';
+        $monoPanelSQL = 'select cp.image_type, pi.id, pi.author_name, pi.title, pi.image, pi.panel_order, pi.award, pi.Judge1_Score, pi.Judge2_Score, pi.Judge3_Score from panel_images pi, club_panels cp where  cp.image_id=pi.id and pi.panel_order < 11 and cp.club_id=' . $clubid . ' and cp.image_type="mono" order by pi.panel_order';
         $colourPanelResults = DB::select(DB::raw($colourPanelSQL));
         $monoPanelResults = DB::select(DB::raw($monoPanelSQL));
 
 
         $colourPanel = [];
         $monoPanel = [];
-        $awards = [0=>'No Award', 3=>'Highly Commended', 4=>'Bronze Medal', 5=>'Silver Medal', 6=>'Gold Medal'];
+        $awards = [0 => 'No Award', 3 => 'Highly Commended', 4 => 'Bronze Medal', 5 => 'Silver Medal', 6 => 'Gold Medal'];
 
-        foreach( $colourPanelResults as $result ){
+        foreach ($colourPanelResults as $result) {
             $colourImage = [];
             $colourImage['id'] = $result->id;
             $colourImage['type'] = $result->image_type;
@@ -409,11 +414,11 @@ class AdminResultsController extends Controller
             $colourImage['judge1'] = $result->Judge1_Score;
             $colourImage['judge2'] = $result->Judge2_Score;
             $colourImage['judge3'] = $result->Judge3_Score;
-            $colourImage['total'] =  $result->Judge1_Score +  $result->Judge2_Score +  $result->Judge3_Score;
+            $colourImage['total'] = $result->Judge1_Score + $result->Judge2_Score + $result->Judge3_Score;
             $colourImage['award'] = $awards[$result->award];
             array_push($colourPanel, $colourImage);
         }
-        foreach( $monoPanelResults as $result ){
+        foreach ($monoPanelResults as $result) {
             $monoImage = [];
             $monoImage['id'] = $result->id;
             $monoImage['type'] = $result->image_type;
@@ -424,20 +429,21 @@ class AdminResultsController extends Controller
             $monoImage['judge1'] = $result->Judge1_Score;
             $monoImage['judge2'] = $result->Judge2_Score;
             $monoImage['judge3'] = $result->Judge3_Score;
-            $monoImage['total'] =  $result->Judge1_Score +  $result->Judge2_Score +  $result->Judge3_Score;
+            $monoImage['total'] = $result->Judge1_Score + $result->Judge2_Score + $result->Judge3_Score;
             $monoImage['award'] = $awards[$result->award];
             array_push($monoPanel, $monoImage);
         }
-        $panelScores = ['colour'=>$colourPanel, 'mono'=>$monoPanel];
+        $panelScores = ['colour' => $colourPanel, 'mono' => $monoPanel];
 
 
         return $panelScores;
     }
 
-    public function getPDFResults($clubid){
+    public function getPDFResults($clubid)
+    {
 
         $club = Club::find($clubid);
-        if( !is_null($club)){
+        if (!is_null($club)) {
             $pageArray = $this->getPanelScores($clubid);
             $pageArray['clubname'] = $club->clubname;
             $pdf = PDF::loadView('results.scores', $pageArray);
@@ -450,53 +456,155 @@ class AdminResultsController extends Controller
     public function createImagesZip(Request $request)
     {
 
-        $public_dir=public_path();
-        $this->delete_files($public_dir."/website");
-        mkdir($public_dir."/website");
-        mkdir($public_dir."/website/panels");
-        mkdir($public_dir."/website/panels/mono");
-        mkdir($public_dir."/website/panels/colour");
-        mkdir($public_dir."/website/winners");
+        $public_dir = public_path();
+        $this->delete_files($public_dir . "/website");
+        mkdir($public_dir . "/website");
+        mkdir($public_dir . "/website/panels");
+        mkdir($public_dir . "/website/panels/mono");
+        mkdir($public_dir . "/website/panels/colour");
+        mkdir($public_dir . "/website/winners");
 
         $results = $this->getResults();
         $entries = ClubEntry::where('status', 'complete')->get();
 
-        foreach( $entries as $entry ){
+        foreach ($entries as $entry) {
             $clubid = $entry->club_id;
             $club = Club::find($clubid);
-            if($this->hasMonoPanel($clubid)){
-                copy("uploads/".$clubid."/".$clubid."_mono_contact_sheet.jpg", "website/panels/mono/".str_replace(" ", "_", $club->clubname).".jpg");
+            if ($this->hasMonoPanel($clubid)) {
+                copy("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "website/panels/mono/" . str_replace(" ", "_", $club->clubname) . ".jpg");
             }
-            if( $this->hasColourPanel($clubid)){
-                copy("uploads/".$clubid."/".$clubid."_colour_contact_sheet.jpg", "website/panels/colour/".str_replace(" ", "_", $club->clubname).".jpg");
+            if ($this->hasColourPanel($clubid)) {
+                copy("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "website/panels/colour/" . str_replace(" ", "_", $club->clubname) . ".jpg");
             }
         }
 
         $zipFileName = "ipf_website_images.zip";
 
         $zipFile = new ZipArchive();
-	if( file_exists($public_dir.'/'.$zipFileName)) {
-		unlink($public_dir.'/'.$zipFileName);
-	}
+        if (file_exists($public_dir . '/' . $zipFileName)) {
+            unlink($public_dir . '/' . $zipFileName);
+        }
         if ($zipFile->open($public_dir . '/' . $zipFileName, ZipArchive::CREATE) === TRUE) {
             // Add File in ZipArchive
 
-            $monofiles = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir."/website/panels/mono"), RecursiveIteratorIterator::LEAVES_ONLY);
+            if( !is_null($results['first_overall'] )) {
+                foreach($results['first_overall']  as $result) {
+                    $firstOverallClubId = $result['club_id'];
+                    $zipFile->addFile("uploads/" . $firstOverallClubId . "/" . $firstOverallClubId . "_mono_contact_sheet.jpg", "winners/Overall_Winner_Mono_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $zipFile->addFile("uploads/" . $firstOverallClubId . "/" . $firstOverallClubId . "_colour_contact_sheet.jpg", "winners/Overall_Winner_Colour_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                }
+            }
+            if( !is_null($results['first_colour'] )) {
+                foreach($results['first_colour']  as $result) {
+                    $clubid = $result['club_id'];
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_First_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                }
+            }
+            if( !is_null($results['second_colour'] )) {
+                foreach ($results['second_colour'] as $result) {
+                    $clubid = $result['club_id'];
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Second_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                }
+            }
+            if( !is_null($results['third_colour'] )) {
+                foreach ($results['third_colour'] as $result) {
+                    $clubid = $result['club_id'];
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Third_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                }
+            }
+
+            if( !is_null($results['first_mono'] )) {
+                foreach($results['first_mono']  as $result) {
+                    $clubid = $result['club_id'];
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_First_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                }
+            }
+            if( !is_null($results['second_mono'] )) {
+                foreach ($results['second_mono'] as $result) {
+                    $clubid = $result['club_id'];
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_Second_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                }
+            }
+            if( !is_null($results['third_mono'] )) {
+                foreach ($results['third_mono'] as $result) {
+                    $clubid = $result['club_id'];
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_Third_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                }
+            }
+            
+            if( !is_null($results['colour_gold'] )) {
+                foreach ($results['colour_gold'] as $result) {
+                    $fileName = "winners/Colour_Gold_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+
+            if( !is_null($results['colour_silver'] )) {
+                foreach ($results['colour_silver'] as $result) {
+                    $fileName = "winners/Colour_Silver_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+
+            if( !is_null($results['colour_bronze'] )) {
+                foreach ($results['colour_bronze'] as $result) {
+                    $fileName = "winners/Colour_Bronze_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+
+            if( !is_null($results['colour_hc'] )) {
+                foreach ($results['colour_hc'] as $result) {
+                    $fileName = "winners/Colour_Highly_Commended_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+
+            if( !is_null($results['mono_gold'] )) {
+                foreach ($results['mono_gold'] as $result) {
+                    $fileName = "winners/Mono_Gold_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+
+            if( !is_null($results['mono_silver'] )) {
+                foreach ($results['mono_silver'] as $result) {
+                    $fileName = "winners/Mono_Silver_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+
+            if( !is_null($results['mono_bronze'] )) {
+                foreach ($results['mono_bronze'] as $result) {
+                    $fileName = "winners/Mono_Bronze_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+
+            if( !is_null($results['mono_hc'] )) {
+                foreach ($results['mono_hc'] as $result) {
+                    $fileName = "winners/Mono_Highly_Commended_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $zipFile->addFile("uploads/".$result->image, $fileName);
+                }
+            }
+            
+            
+            $monofiles = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir . "/website/panels/mono"), RecursiveIteratorIterator::LEAVES_ONLY);
 
             // let's iterate
             foreach ($monofiles as $name => $monofile) {
                 $filePath = $monofile->getRealPath();
-		if (file_exists($filePath) && is_file($filePath)) {
-                	$zipFile->addFile($filePath, "panels/mono/".$monofile->getFilename());
-		}
+                if (file_exists($filePath) && is_file($filePath)) {
+                    $zipFile->addFile($filePath, "panels/mono/" . $monofile->getFilename());
+                }
             }
-            $colourfiles = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir."/website/panels/colour"), RecursiveIteratorIterator::LEAVES_ONLY);
+            $colourfiles = new RecursiveIteratorIterator (new RecursiveDirectoryIterator($public_dir . "/website/panels/colour"), RecursiveIteratorIterator::LEAVES_ONLY);
             // let's iterate
             foreach ($colourfiles as $name => $colourfile) {
                 $filePath = $colourfile->getRealPath();
-		if (file_exists($filePath) && is_file($filePath)) {
-                	$zipFile->addFile($filePath, "panels/colour/".$colourfile->getFilename());
-		}
+                if (file_exists($filePath) && is_file($filePath)) {
+                    $zipFile->addFile($filePath, "panels/colour/" . $colourfile->getFilename());
+                }
             }
             // Close ZipArchive
             $zipFile->close();
@@ -505,10 +613,10 @@ class AdminResultsController extends Controller
         $headers = array(
             'Content-Type' => 'application/octet-stream',
         );
-        $filetopath=$public_dir.'/'.$zipFileName;
+        $filetopath = $public_dir . '/' . $zipFileName;
         // Create Download Response
-        if(file_exists($filetopath)){
-            return response()->download($filetopath,$zipFileName,$headers);
+        if (file_exists($filetopath)) {
+            return response()->download($filetopath, $zipFileName, $headers);
         }
 
 
@@ -519,16 +627,16 @@ class AdminResultsController extends Controller
      */
     public function delete_files($target)
     {
-        if(file_exists($target)) {
+        if (file_exists($target)) {
             if (is_dir($target)) {
                 $files = glob($target . '*', GLOB_MARK); //GLOB_MARK adds a slash to directories returned
 
                 foreach ($files as $file) {
                     $this->delete_files($file);
                 }
-		if( file_exists($target)){
-                	rmdir($target);
-		}
+                if (file_exists($target)) {
+                    rmdir($target);
+                }
             } elseif (is_file($target)) {
                 unlink($target);
             }
