@@ -489,101 +489,101 @@ class AdminResultsController extends Controller
 
             if( !is_null($results['first_overall'] )) {
                 foreach($results['first_overall']  as $result) {
-                    $firstOverallClubId = $result['club_id'];
-                    $zipFile->addFile("uploads/" . $firstOverallClubId . "/" . $firstOverallClubId . "_mono_contact_sheet.jpg", "winners/Overall_Winner_Mono_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
-                    $zipFile->addFile("uploads/" . $firstOverallClubId . "/" . $firstOverallClubId . "_colour_contact_sheet.jpg", "winners/Overall_Winner_Colour_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $firstOverallClubId = $result->club_id;
+                    $zipFile->addFile("uploads/" . $firstOverallClubId . "/" . $firstOverallClubId . "_mono_contact_sheet.jpg", "winners/Overall_Winner_Mono_" . str_replace(" ", "_", $result->clubname) . ".jpg");
+                    $zipFile->addFile("uploads/" . $firstOverallClubId . "/" . $firstOverallClubId . "_colour_contact_sheet.jpg", "winners/Overall_Winner_Colour_" . str_replace(" ", "_", $result->clubname) . ".jpg");
                 }
             }
             if( !is_null($results['first_colour'] )) {
                 foreach($results['first_colour']  as $result) {
-                    $clubid = $result['club_id'];
+                    $clubid = $result->club_id;
                     $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_First_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
                 }
             }
             if( !is_null($results['second_colour'] )) {
                 foreach ($results['second_colour'] as $result) {
-                    $clubid = $result['club_id'];
+                    $clubid = $result->club_id;
                     $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Second_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
                 }
             }
             if( !is_null($results['third_colour'] )) {
                 foreach ($results['third_colour'] as $result) {
-                    $clubid = $result['club_id'];
+                    $clubid = $result->club_id;
                     $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Third_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
                 }
             }
 
             if( !is_null($results['first_mono'] )) {
                 foreach($results['first_mono']  as $result) {
-                    $clubid = $result['club_id'];
-                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_First_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $clubid = $result->club_id;
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_First_Place_" . str_replace(" ", "_", $result->clubname. ".jpg"));
                 }
             }
             if( !is_null($results['second_mono'] )) {
                 foreach ($results['second_mono'] as $result) {
-                    $clubid = $result['club_id'];
-                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_Second_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $clubid = $result->club_id;
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_Second_Place_" . str_replace(" ", "_", $result->clubname. ".jpg"));
                 }
             }
             if( !is_null($results['third_mono'] )) {
                 foreach ($results['third_mono'] as $result) {
-                    $clubid = $result['club_id'];
-                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_Third_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $clubid = $result->club_id;
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_mono_contact_sheet.jpg", "winners/mono_Third_Place_" . str_replace(" ", "_", $result->clubname. ".jpg"));
                 }
             }
             
             if( !is_null($results['colour_gold'] )) {
                 foreach ($results['colour_gold'] as $result) {
-                    $fileName = "winners/Colour_Gold_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Colour_Gold_Medal_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
 
             if( !is_null($results['colour_silver'] )) {
                 foreach ($results['colour_silver'] as $result) {
-                    $fileName = "winners/Colour_Silver_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Colour_Silver_Medal_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
 
             if( !is_null($results['colour_bronze'] )) {
                 foreach ($results['colour_bronze'] as $result) {
-                    $fileName = "winners/Colour_Bronze_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Colour_Bronze_Medal_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
 
             if( !is_null($results['colour_hc'] )) {
                 foreach ($results['colour_hc'] as $result) {
-                    $fileName = "winners/Colour_Highly_Commended_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Colour_Highly_Commended_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
 
             if( !is_null($results['mono_gold'] )) {
                 foreach ($results['mono_gold'] as $result) {
-                    $fileName = "winners/Mono_Gold_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Mono_Gold_Medal_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
 
             if( !is_null($results['mono_silver'] )) {
                 foreach ($results['mono_silver'] as $result) {
-                    $fileName = "winners/Mono_Silver_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Mono_Silver_Medal_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
 
             if( !is_null($results['mono_bronze'] )) {
                 foreach ($results['mono_bronze'] as $result) {
-                    $fileName = "winners/Mono_Bronze_Medal_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Mono_Bronze_Medal_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
 
             if( !is_null($results['mono_hc'] )) {
                 foreach ($results['mono_hc'] as $result) {
-                    $fileName = "winners/Mono_Highly_Commended_".str_replace_array(" ", "_", $result['author_name'])."_".str_replace_array(" ", "_", $result['clubname'])."_".str_replace_array(" ", "_", $result['title']);
+                    $fileName = "winners/Mono_Highly_Commended_".str_replace_array(" ", "_", $result->author_name)."_".str_replace_array(" ", "_", $result->clubname)."_".str_replace_array(" ", "_", $result->title);
                     $zipFile->addFile("uploads/".$result->image, $fileName);
                 }
             }
