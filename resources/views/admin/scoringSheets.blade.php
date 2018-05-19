@@ -15,9 +15,9 @@
                         @foreach($rows as $row => $images)
                             <div><h4>Panel {{$panel_number}} -
                                     @if($row == 1)
-                                        Top Row
+                                        Top Row - Judge {{ $data['judge'] }}
                                     @else
-                                        Bottom Row
+                                        Bottom Row - Judge {{ $data['judge'] }}
                                     @endif
                                 </h4></div>
 
