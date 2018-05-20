@@ -31,8 +31,6 @@
                                 <li><a href="{{ route('showStandings') }}">Standings</a></li>
 
                                 <li><a href="{{ route('showIndividualScores') }}">Individual Scores</a></li>
-                                <li><a href="{{ route('showStandingsPDF') }}">Download Standings</a></li>
-                                <li><a href="{{ route('showIndividualScoresPDF') }}">Download Individual Scores</a></li>
                             @endif
 
                         </ol>
