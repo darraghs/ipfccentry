@@ -497,19 +497,19 @@ class AdminResultsController extends Controller
             if( !is_null($results['first_colour'] )) {
                 foreach($results['first_colour']  as $result) {
                     $clubid = $result->club_id;
-                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_First_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_First_Place_" . str_replace(" ", "_", $result->clubname) . ".jpg");
                 }
             }
             if( !is_null($results['second_colour'] )) {
                 foreach ($results['second_colour'] as $result) {
                     $clubid = $result->club_id;
-                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Second_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Second_Place_" . str_replace(" ", "_", $result->clubname) . ".jpg");
                 }
             }
             if( !is_null($results['third_colour'] )) {
                 foreach ($results['third_colour'] as $result) {
                     $clubid = $result->club_id;
-                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Third_Place_" . str_replace(" ", "_", $result['clubname']) . ".jpg");
+                    $zipFile->addFile("uploads/" . $clubid . "/" . $clubid . "_colour_contact_sheet.jpg", "winners/Colour_Third_Place_" . str_replace(" ", "_", $result->clubname) . ".jpg");
                 }
             }
 
