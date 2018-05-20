@@ -50,9 +50,11 @@ Route::get('/admin/generateSheet/{paneltype}/{club_id}','ClubEntryController@cre
 
 Route::get('/results/showOverallResults','AdminResultsController@showOverallResults')->name('showOverallResults');
 Route::get('/results/showStandings','AdminResultsController@showStandings')->name('showStandings');
+Route::get('/results/showStandingsPDF','AdminResultsController@showStandingsPDF')->name('showStandingsPDF');
 Route::get('/results/showIndividualScores','AdminResultsController@showIndividualScores')->name('showIndividualScores');
+Route::get('/results/showIndividualScoresPDF','AdminResultsController@showIndividualScoresPDF')->name('showIndividualScoresPDF');
 Route::get('/results/showPanelScores/{clubid}','AdminResultsController@showIndividualScores')->name('showPanelScores');
-Route::get('/results/getPDFResults/{clubid}','AdminResultsController@getPDFResults')->name('getPDFResults');
+Route::get('/results/getPDFResults/{clubid}','AdminResultsController@showIndividualScoresPDF')->name('getPDFResults');
 
 
 

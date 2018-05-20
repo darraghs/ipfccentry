@@ -324,6 +324,15 @@ class AdminResultsController extends Controller
         return view('results.standings', $pageArray);
     }
 
+    public function showStandingsPDF()
+    {
+        $pageArray = $this->getStandings();
+        $pdf = PDF::loadView('results.standings', $pageArray);
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->download('standings.pdf');
+
+    }
+
     public function getStandings()
     {
         $pageArray = [];
@@ -386,6 +395,24 @@ class AdminResultsController extends Controller
             $pageArray = $this->getPanelScores($clubid);
             $pageArray['clubname'] = $club->clubname;
             return view('results.scores', $pageArray);
+        }
+    }
+
+
+    public function showIndividualScoresPDF($clubid = NULL)
+    {
+
+        if (is_null($clubid)) {
+            $clubid = Auth::user()->club_id;
+        }
+        $club = Club::find($clubid);
+        if (!is_null($club)) {
+            $pageArray = $this->getPanelScores($clubid);
+
+            $pageArray['clubname'] = $club->clubname;
+            $pdf = PDF::loadView('results.scores', $pageArray);
+            $pdf->setPaper('a4', 'landscape');
+            return $pdf->download('scores.pdf');
         }
     }
 

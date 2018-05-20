@@ -29,7 +29,10 @@
                             @if( strcmp($status->getCurrentStatus() ,'finished')== 0)
                                 <li><a href="{{ route('showOverallResults') }}">Overall Results</a></li>
                                 <li><a href="{{ route('showStandings') }}">Standings</a></li>
+
                                 <li><a href="{{ route('showIndividualScores') }}">Individual Scores</a></li>
+                                <li><a href="{{ route('showStandingsPDF') }}">Download Standings</a></li>
+                                <li><a href="{{ route('showIndividualScoresPDF') }}">Download Individual Scores</a></li>
                             @endif
 
                         </ol>
