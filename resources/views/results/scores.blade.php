@@ -78,10 +78,16 @@
                                         {{$result['total']}}
                                     </div>
                                     <div class="col-xs-3">
-                                        {{$result['award']}}
+                                        @if( $result['award'] == 'No Award' )
+                                            {{$result['award']}}
+                                        @else
+                                            <b>{{$result['award']}}</b>
+                                        @endif
                                     </div>
                                     <div class="col-xs-3">
-                                        <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" width="100px">
+                                        <a target="_blank" href="{{ url('/') }}/uploads/{{$result['image']}}">
+                                            <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" width="100px">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -161,10 +167,16 @@
                                         {{$result['total']}}
                                     </div>
                                     <div class="col-xs-3">
-                                        {{$result['award']}}
+                                        @if( $result['award'] == 'No Award' )
+                                            {{$result['award']}}
+                                        @else
+                                            <b>{{$result['award']}}</b>
+                                        @endif
                                     </div>
                                     <div class="col-xs-3">
-                                        <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" width="100px">
+                                        <a target="_blank" href="{{ url('/') }}/uploads/{{$result['image']}}">
+                                            <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" width="100px">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
