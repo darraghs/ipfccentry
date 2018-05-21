@@ -413,7 +413,7 @@ class AdminResultsController extends Controller
 
             $pdf = PDF::loadView('results.scoresPDF', $pageArray);
             $pdf->setPaper('a4', 'landscape');
-            return $pdf->download('scores_'.str_replace(" ", "_", $pageArray->clubname).'.pdf');  
+            return $pdf->download('scores_'.str_replace(" ", "_", $club->clubname).'.pdf');
         }
     }
 
