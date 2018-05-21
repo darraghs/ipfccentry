@@ -416,6 +416,22 @@ class AdminResultsController extends Controller
         }
     }
 
+    public function getPDFResults($clubid)
+    {
+
+        $club = Club::find($clubid);
+        if (!is_null($club)) {
+            $pageArray = $this->getPanelScores($clubid);
+            $pageArray['clubname'] = $club->clubname;
+
+            $pdf = PDF::loadView('results.scoresPDF', $pageArray);
+            $pdf->setPaper('a4', 'landscape');
+            return $pdf->download('scores_'.str_replace(" ", "_", $pageArray->clubname).'.pdf');
+
+        }
+
+    }
+
 
     private function getPanelScores($clubid)
     {
@@ -466,19 +482,7 @@ class AdminResultsController extends Controller
         return $panelScores;
     }
 
-    public function getPDFResults($clubid)
-    {
 
-        $club = Club::find($clubid);
-        if (!is_null($club)) {
-            $pageArray = $this->getPanelScores($clubid);
-            $pageArray['clubname'] = $club->clubname;
-            $pdf = PDF::loadView('results.scoresPDF', $pageArray);
-            return $pdf->download('scores_'.str_replace(" ", "_", $pageArray->clubname).'.pdf');
-
-        }
-
-    }
 
     public function createImagesZip(Request $request)
     {
