@@ -473,8 +473,8 @@ class AdminResultsController extends Controller
         if (!is_null($club)) {
             $pageArray = $this->getPanelScores($clubid);
             $pageArray['clubname'] = $club->clubname;
-            $pdf = PDF::loadView('results.scores', $pageArray);
-            return $pdf->download('results.pdf');
+            $pdf = PDF::loadView('results.scoresPDF', $pageArray);
+            return $pdf->download('scores_'.str_replace(" ", "_", $pageArray->clubname).'.pdf');
 
         }
 
