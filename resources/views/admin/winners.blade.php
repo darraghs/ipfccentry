@@ -41,19 +41,19 @@
                                         '0' => "No Award"], $winner->award, ['class' =>'selectwinner'])
                                         }}
                                 @else
-                                    <b>
-                                        @if( $winner->award == 6 )
-                                            Gold Medal
-                                        @elseif ( $winner->award == 5)
-                                            Silver Medal
-                                        @elseif ( $winner->award ==4)
-                                            Bronze Medal
-                                        @elseif ( $winner->award ==3)
-                                            Highly Commended
-                                        @else
-                                            No Award
-                                        @endif
-                                    </b>
+
+                                    @if( $winner->award == 6 )
+                                        <b>Gold Medal</b>
+                                    @elseif ( $winner->award == 5)
+                                        <b>Silver Medal</b>
+                                    @elseif ( $winner->award ==4)
+                                        <b>Bronze Medal</b>
+                                    @elseif ( $winner->award ==3)
+                                        <b>Highly Commended</b>
+                                    @else
+                                        No Award
+                                    @endif
+
                                 @endif
                             </div>
 
