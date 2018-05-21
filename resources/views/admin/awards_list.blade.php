@@ -311,8 +311,7 @@
                                 <img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
                                      width="200px">
                             </a>
-                        </div>
-                        <div class="col-sm-4">
+
                             <a target="_blank"
                                href="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg">
                                 <img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
@@ -337,8 +336,7 @@
                                 <img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
                                      width="200px">
                             </a>
-                        </div>
-                        <div class="col-sm-4">
+
                             <a target="_blank"
                                href="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg">
                                 <img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
@@ -364,8 +362,7 @@
                                 <img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_mono_contact_sheet.jpg"
                                      width="200px">
                             </a>
-                        </div>
-                        <div class="col-sm-4">
+
                             <a target="_blank"
                                href="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg">
                                 <img src="{{ url('/') }}/uploads/{{$result->club_id}}/{{$result->club_id}}_colour_contact_sheet.jpg"
