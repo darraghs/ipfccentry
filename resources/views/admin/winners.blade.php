@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @inject('compstatus', 'App\Http\Controllers\PublicStatusController')
     <div class="container">
         @if( Auth::user()->isAdmin() )
             <div class="panel panel-default">
@@ -32,12 +33,16 @@
 
 
                             <div class="col-sm-4 col-md-2">
-                                {{Form::select($winner->pid, ['6' => "Gold Medal",
-                                    '5' => "Silver Medal",
-                                    '4' => "Bronze Medal",
-                                    '3' => "Highly Commended",
-                                    '0' => "No Award"], $winner->award, ['class' =>'selectwinner'])
-                                    }}
+                                @if($compstatus->getCurrentStatusFull()['id'] > 1 && $compstatus->getCurrentStatusFull()['id'] < 4)
+                                    {{Form::select($winner->pid, ['6' => "Gold Medal",
+                                        '5' => "Silver Medal",
+                                        '4' => "Bronze Medal",
+                                        '3' => "Highly Commended",
+                                        '0' => "No Award"], $winner->award, ['class' =>'selectwinner'])
+                                        }}
+                                @else
+                                    {{ $winner->award }}
+                                @endif
                             </div>
 
                         </div>
