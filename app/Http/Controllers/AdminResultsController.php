@@ -410,7 +410,7 @@ class AdminResultsController extends Controller
             $pageArray = $this->getPanelScores($clubid);
 
             $pageArray['clubname'] = $club->clubname;
-            $pdf = PDF::loadView('results.scores', $pageArray);
+            $pdf = PDF::loadView('results.scoresPDF', $pageArray);
             $pdf->setPaper('a4', 'landscape');
             return $pdf->download('scores.pdf');
         }
