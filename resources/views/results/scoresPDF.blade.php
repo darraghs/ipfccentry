@@ -71,7 +71,8 @@
                             {{$result['award']}}
                         </td>
                         <td class="col-xs-3">
-                            <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" style="max-height: 100px; max-width: 200px">
+                            <img src="{{ url('/') }}/uploads/200_{{$result['image']}}"
+                                 style="max-height: 100px; max-width: 200px">
                         </td>
                     </tr>
                 @endforeach
@@ -142,7 +143,8 @@
                             {{$result['award']}}
                         </td>
                         <td class="col-xs-3">
-                            <img src="{{ url('/') }}/uploads/200_{{$result['image']}}" style="max-height: 100px; max-width: 200px">
+                            <img src="{{ url('/') }}/uploads/200_{{$result['image']}}"
+                                 style="max-height: 100px; max-width: 200px">
                         </td>
                     </tr>
                 @endforeach
