@@ -32,9 +32,9 @@
                     <td style="width: 10%">{{ $result['place'] }}</td>
                     <td style="width: 55%"><img
                                 src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_mono_contact_sheet.jpg"
-                                width="100px"><br/><br/><img
+                                width="200px"><br/><br/><img
                                 src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
-                                width="100px"></td>
+                                width="200px"></td>
                 </tr>
             @endforeach
         </table>
@@ -65,7 +65,7 @@
                     <td>{{ $result['place'] }}</td>
                     <td><img
                                 src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_colour_contact_sheet.jpg"
-                                width="100px"></td>
+                                width="200px"></td>
                 </tr>
             @endforeach
         </table>
@@ -96,7 +96,7 @@
                     <td>{{ $result['place'] }}</td>
                     <td><img
                                 src="{{ url('/') }}/uploads/{{$result['club_id']}}/{{$result['club_id']}}_mono_contact_sheet.jpg"
-                                width="100px"></td>
+                                width="200px"></td>
                 </tr>
         @endforeach
 
