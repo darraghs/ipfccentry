@@ -329,7 +329,7 @@ class AdminResultsController extends Controller
         $pageArray = $this->getStandings();
         //return view('results.standingsPDF', $pageArray);
         $pdf = PDF::loadView('results.standingsPDF', $pageArray);
-        $pdf->setPaper('a4', 'landscape');
+        $pdf->setPaper('a4', 'portrait');
         return $pdf->download('standings.pdf');
 
     }
