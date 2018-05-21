@@ -327,7 +327,7 @@ class AdminResultsController extends Controller
     public function showStandingsPDF()
     {
         $pageArray = $this->getStandings();
-        //return view('results.standingsPDF', $pageArray);
+        return view('results.standingsPDF', $pageArray);
         $pdf = PDF::loadView('results.standingsPDF', $pageArray);
         $pdf->setPaper('a4', 'portrait');
         return $pdf->download('standings.pdf');
@@ -403,34 +403,29 @@ class AdminResultsController extends Controller
     public function showIndividualScoresPDF($clubid = NULL)
     {
 
+
         if (is_null($clubid)) {
             $clubid = Auth::user()->club_id;
         }
+
         $club = Club::find($clubid);
+      
         if (!is_null($club)) {
             $pageArray = $this->getPanelScores($clubid);
 
+           
+
             $pageArray['clubname'] = $club->clubname;
+            return view('results.scoresPDF', $pageArray);
             $pdf = PDF::loadView('results.scoresPDF', $pageArray);
             $pdf->setPaper('a4', 'landscape');
-            return $pdf->download('scores.pdf');
+            return $pdf->download('scores_'.str_replace(" ", "_", $pageArray->clubname).'.pdf');  
         }
     }
 
     public function getPDFResults($clubid)
     {
-
-        $club = Club::find($clubid);
-        if (!is_null($club)) {
-            $pageArray = $this->getPanelScores($clubid);
-            $pageArray['clubname'] = $club->clubname;
-
-            $pdf = PDF::loadView('results.scoresPDF', $pageArray);
-            $pdf->setPaper('a4', 'landscape');
-            return $pdf->download('scores_'.str_replace(" ", "_", $pageArray->clubname).'.pdf');
-
-        }
-
+        return $this->showIndividualScoresPDF($clubid);
     }
 
 

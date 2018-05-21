@@ -51,17 +51,39 @@
                             <li><a href="{{ route('entry') }}">Entry Form</a></li>
                         @else
                             <li><a href="{{ route('entrystatus') }}">Entry Status</a></li>
-                            <li><a href="{{ route('monopanel') }}">Mono Panel</a></li>
-                            <li><a href="{{ route('colourpanel') }}">Colour Panel</a></li>
                             @if($status->isPaid() == false)
                                 <li><a href="{{ route('payment') }}">Payment</a></li>
                             @endif
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
+                                    Results <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('monopanel') }}">Mono Panel</a></li>
+                                    <li><a href="{{ route('colourpanel') }}">Colour Panel</a></li>
+                                </ul>
+                            </li>
+
                         @endif
 
                         @if( strcmp($status->getCurrentStatus() ,'finished')== 0)
-                            <li><a href="{{ route('showOverallResults') }}">Overall Results</a></li>
-                            <li><a href="{{ route('showStandings') }}">Standings</a></li>
-                            <li><a href="{{ route('showIndividualScores') }}">Individual Scores</a></li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
+                                    Results <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('showOverallResults') }}">Overall Results</a></li>
+                                    <li><a href="{{ route('showStandings') }}">Standings</a></li>
+                                    <li><a href="{{ route('showIndividualScores') }}">Individual Scores</a></li>
+                                    <li><a href="{{ route('showIndividualScoresPDF') }}">Download Individual Scores</a></li>
+                                    <li><a href="{{ route('showStandingsPDF') }}">Download Standings</a></li>
+                                </ul>
+                            </li>
                         @endif
                     </ul>
                 @else
