@@ -236,7 +236,7 @@
     @foreach ($second_colour as $result)
         <div class="page-break"></div>
 
-        <h3 style="text-align: center">Colour Third Place</h3>
+        <h3 style="text-align: center">Colour Second Place</h3>
 
 
         <div class="row" style="text-align: center"><img
@@ -252,7 +252,7 @@
     @foreach ($first_colour as $result)
         <div class="page-break"></div>
 
-        <h3 style="text-align: center">Colour Second Place</h3>
+        <h3 style="text-align: center">Colour First Place</h3>
 
 
         <div class="row" style="text-align: center"><img
