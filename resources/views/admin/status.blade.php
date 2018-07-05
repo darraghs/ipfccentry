@@ -82,6 +82,8 @@
                                         {{$data['panel_number']}}
                                         @if( strcmp( $data['status'], "complete") == 0)
                                             - <a href="{{ url('/') }}/results/showPanelScores/{{$data['club_id']}}">Scores</a>
+                                            <br/>
+                                            <a href="{{ url('/') }}/results/getPDFResults/{{$data['club_id']}}">PDF</a>
                                         @endif
                                     </div>
                                     <div class="col-xs-3">
